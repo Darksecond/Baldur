@@ -1,0 +1,350 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		F6434AD117AFE7E10018BDC9 /* Component.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F6434ACF17AFE7E10018BDC9 /* Component.cpp */; };
+		F6434AD517AFE8F80018BDC9 /* World.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F6434AD317AFE8F80018BDC9 /* World.cpp */; };
+		F6836F0417AFBB8000F0D669 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F6836F0317AFBB8000F0D669 /* Cocoa.framework */; };
+		F6836F1017AFBB8000F0D669 /* main.mm in Sources */ = {isa = PBXBuildFile; fileRef = F6836F0F17AFBB8000F0D669 /* main.mm */; };
+		F689F0C517AFC61400A74DEA /* GLFW.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F689F0C117AFC54100A74DEA /* GLFW.framework */; };
+		F689F0C617AFC67C00A74DEA /* GLFW.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = F689F0C117AFC54100A74DEA /* GLFW.framework */; };
+		F689F0C717AFC69E00A74DEA /* GLM.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = F6E7BC8B17AFC00A00B9D2B2 /* GLM.framework */; };
+		F689F0FD17AFC81E00A74DEA /* GLEW.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = F689F0FB17AFC81A00A74DEA /* GLEW.framework */; };
+		F689F0FE17AFC83400A74DEA /* GLEW.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F689F0FB17AFC81A00A74DEA /* GLEW.framework */; };
+		F689F12B17AFD18700A74DEA /* libluajit-5.1.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F689F12917AFD17E00A74DEA /* libluajit-5.1.a */; };
+		F6E7BC8C17AFC00A00B9D2B2 /* GLM.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F6E7BC8B17AFC00A00B9D2B2 /* GLM.framework */; };
+		F6EFD1F917B10D7500CAB3E3 /* ComponentPool.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F6EFD1F717B10D7500CAB3E3 /* ComponentPool.cpp */; };
+		F6EFD1FC17B1167800CAB3E3 /* ChainPool.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F6EFD1FA17B1167800CAB3E3 /* ChainPool.cpp */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		F6E7BC9217AFC1E300B9D2B2 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 12;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				F689F0C617AFC67C00A74DEA /* GLFW.framework in CopyFiles */,
+				F689F0FD17AFC81E00A74DEA /* GLEW.framework in CopyFiles */,
+				F689F0C717AFC69E00A74DEA /* GLM.framework in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		F6434ACF17AFE7E10018BDC9 /* Component.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Component.cpp; sourceTree = "<group>"; };
+		F6434AD017AFE7E10018BDC9 /* Component.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Component.h; sourceTree = "<group>"; };
+		F6434AD317AFE8F80018BDC9 /* World.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = World.cpp; sourceTree = "<group>"; };
+		F6434AD417AFE8F80018BDC9 /* World.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = World.h; sourceTree = "<group>"; };
+		F6836F0017AFBB8000F0D669 /* Baldur.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Baldur.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		F6836F0317AFBB8000F0D669 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
+		F6836F0617AFBB8000F0D669 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
+		F6836F0717AFBB8000F0D669 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		F6836F0817AFBB8000F0D669 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		F6836F0B17AFBB8000F0D669 /* Baldur-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Baldur-Info.plist"; sourceTree = "<group>"; };
+		F6836F0F17AFBB8000F0D669 /* main.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = main.mm; sourceTree = "<group>"; };
+		F689F0C117AFC54100A74DEA /* GLFW.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GLFW.framework; path = "../../../Library/Developer/Xcode/DerivedData/Baldur-btwkzdokouqopcbnsjpypviqwbxp/Build/Products/Debug/GLFW.framework"; sourceTree = "<group>"; };
+		F689F0FB17AFC81A00A74DEA /* GLEW.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GLEW.framework; path = "../../../Library/Developer/Xcode/DerivedData/Baldur-btwkzdokouqopcbnsjpypviqwbxp/Build/Products/Debug/GLEW.framework"; sourceTree = "<group>"; };
+		F689F12917AFD17E00A74DEA /* libluajit-5.1.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libluajit-5.1.a"; path = "/usr/local/lib/libluajit-5.1.a"; sourceTree = "<absolute>"; };
+		F6E7BC8B17AFC00A00B9D2B2 /* GLM.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GLM.framework; path = "../../../Library/Developer/Xcode/DerivedData/Baldur-btwkzdokouqopcbnsjpypviqwbxp/Build/Products/Debug/GLM.framework"; sourceTree = "<group>"; };
+		F6EFD1F717B10D7500CAB3E3 /* ComponentPool.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ComponentPool.cpp; sourceTree = "<group>"; };
+		F6EFD1F817B10D7500CAB3E3 /* ComponentPool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ComponentPool.h; sourceTree = "<group>"; };
+		F6EFD1FA17B1167800CAB3E3 /* ChainPool.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ChainPool.cpp; sourceTree = "<group>"; };
+		F6EFD1FB17B1167800CAB3E3 /* ChainPool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChainPool.h; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		F6836EFD17AFBB8000F0D669 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F689F0FE17AFC83400A74DEA /* GLEW.framework in Frameworks */,
+				F689F0C517AFC61400A74DEA /* GLFW.framework in Frameworks */,
+				F6E7BC8C17AFC00A00B9D2B2 /* GLM.framework in Frameworks */,
+				F6836F0417AFBB8000F0D669 /* Cocoa.framework in Frameworks */,
+				F689F12B17AFD18700A74DEA /* libluajit-5.1.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		F6836EF717AFBB8000F0D669 = {
+			isa = PBXGroup;
+			children = (
+				F6836F2017AFBC9200F0D669 /* src */,
+				F6836F0A17AFBB8000F0D669 /* Supporting Files */,
+				F6836F0217AFBB8000F0D669 /* Frameworks */,
+				F6836F0117AFBB8000F0D669 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		F6836F0117AFBB8000F0D669 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				F6836F0017AFBB8000F0D669 /* Baldur.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		F6836F0217AFBB8000F0D669 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				F689F12917AFD17E00A74DEA /* libluajit-5.1.a */,
+				F689F0FB17AFC81A00A74DEA /* GLEW.framework */,
+				F689F0C117AFC54100A74DEA /* GLFW.framework */,
+				F6E7BC8B17AFC00A00B9D2B2 /* GLM.framework */,
+				F6836F0317AFBB8000F0D669 /* Cocoa.framework */,
+				F6836F0517AFBB8000F0D669 /* Other Frameworks */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		F6836F0517AFBB8000F0D669 /* Other Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				F6836F0617AFBB8000F0D669 /* AppKit.framework */,
+				F6836F0717AFBB8000F0D669 /* CoreData.framework */,
+				F6836F0817AFBB8000F0D669 /* Foundation.framework */,
+			);
+			name = "Other Frameworks";
+			sourceTree = "<group>";
+		};
+		F6836F0A17AFBB8000F0D669 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				F6836F0B17AFBB8000F0D669 /* Baldur-Info.plist */,
+				F6836F0F17AFBB8000F0D669 /* main.mm */,
+			);
+			name = "Supporting Files";
+			path = osx;
+			sourceTree = "<group>";
+		};
+		F6836F2017AFBC9200F0D669 /* src */ = {
+			isa = PBXGroup;
+			children = (
+				F6434ACF17AFE7E10018BDC9 /* Component.cpp */,
+				F6434AD017AFE7E10018BDC9 /* Component.h */,
+				F6434AD317AFE8F80018BDC9 /* World.cpp */,
+				F6434AD417AFE8F80018BDC9 /* World.h */,
+				F6EFD1F717B10D7500CAB3E3 /* ComponentPool.cpp */,
+				F6EFD1F817B10D7500CAB3E3 /* ComponentPool.h */,
+				F6EFD1FA17B1167800CAB3E3 /* ChainPool.cpp */,
+				F6EFD1FB17B1167800CAB3E3 /* ChainPool.h */,
+			);
+			path = src;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		F6836EFF17AFBB8000F0D669 /* Baldur */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F6836F1D17AFBB8000F0D669 /* Build configuration list for PBXNativeTarget "Baldur" */;
+			buildPhases = (
+				F6836EFC17AFBB8000F0D669 /* Sources */,
+				F6836EFD17AFBB8000F0D669 /* Frameworks */,
+				F6836EFE17AFBB8000F0D669 /* Resources */,
+				F6E7BC9217AFC1E300B9D2B2 /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Baldur;
+			productName = Baldur;
+			productReference = F6836F0017AFBB8000F0D669 /* Baldur.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		F6836EF817AFBB8000F0D669 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0460;
+				ORGANIZATIONNAME = "Tim Peters";
+			};
+			buildConfigurationList = F6836EFB17AFBB8000F0D669 /* Build configuration list for PBXProject "Baldur" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = F6836EF717AFBB8000F0D669;
+			productRefGroup = F6836F0117AFBB8000F0D669 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				F6836EFF17AFBB8000F0D669 /* Baldur */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		F6836EFE17AFBB8000F0D669 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		F6836EFC17AFBB8000F0D669 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F6836F1017AFBB8000F0D669 /* main.mm in Sources */,
+				F6434AD117AFE7E10018BDC9 /* Component.cpp in Sources */,
+				F6434AD517AFE8F80018BDC9 /* World.cpp in Sources */,
+				F6EFD1F917B10D7500CAB3E3 /* ComponentPool.cpp in Sources */,
+				F6EFD1FC17B1167800CAB3E3 /* ChainPool.cpp in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		F6836F1B17AFBB8000F0D669 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.8;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		F6836F1C17AFBB8000F0D669 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.8;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		F6836F1E17AFBB8000F0D669 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/../../../Library/Developer/Xcode/DerivedData/Baldur-btwkzdokouqopcbnsjpypviqwbxp/Build/Products/Debug\"",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = NO;
+				GCC_PREFIX_HEADER = "";
+				HEADER_SEARCH_PATHS = /usr/local/include;
+				INFOPLIST_FILE = "osx/Baldur-Info.plist";
+				LIBRARY_SEARCH_PATHS = /usr/local/lib;
+				OTHER_CFLAGS = "";
+				OTHER_CPLUSPLUSFLAGS = "$(OTHER_CFLAGS)";
+				OTHER_LDFLAGS = (
+					"-pagezero_size",
+					10000,
+					"-image_base",
+					100000000,
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		F6836F1F17AFBB8000F0D669 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/../../../Library/Developer/Xcode/DerivedData/Baldur-btwkzdokouqopcbnsjpypviqwbxp/Build/Products/Debug\"",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = NO;
+				GCC_PREFIX_HEADER = "";
+				HEADER_SEARCH_PATHS = /usr/local/include;
+				INFOPLIST_FILE = "osx/Baldur-Info.plist";
+				LIBRARY_SEARCH_PATHS = /usr/local/lib;
+				OTHER_CFLAGS = "";
+				OTHER_CPLUSPLUSFLAGS = "$(OTHER_CFLAGS)";
+				OTHER_LDFLAGS = (
+					"-pagezero_size",
+					10000,
+					"-image_base",
+					100000000,
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		F6836EFB17AFBB8000F0D669 /* Build configuration list for PBXProject "Baldur" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F6836F1B17AFBB8000F0D669 /* Debug */,
+				F6836F1C17AFBB8000F0D669 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F6836F1D17AFBB8000F0D669 /* Build configuration list for PBXNativeTarget "Baldur" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F6836F1E17AFBB8000F0D669 /* Debug */,
+				F6836F1F17AFBB8000F0D669 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = F6836EF817AFBB8000F0D669 /* Project object */;
+}
