@@ -44,6 +44,7 @@ public:
         events::sendEvent(e, true);
         
         _components[C::type()].remove(component);
+        delete component;
     }
     
     template <typename C>
