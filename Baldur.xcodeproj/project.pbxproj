@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F619A6A117B13465009ABFBC /* Entity.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F619A69F17B13465009ABFBC /* Entity.cpp */; };
 		F6434AD117AFE7E10018BDC9 /* Component.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F6434ACF17AFE7E10018BDC9 /* Component.cpp */; };
 		F6434AD517AFE8F80018BDC9 /* World.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F6434AD317AFE8F80018BDC9 /* World.cpp */; };
 		F6836F0417AFBB8000F0D669 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F6836F0317AFBB8000F0D669 /* Cocoa.framework */; };
@@ -18,8 +19,6 @@
 		F689F0FE17AFC83400A74DEA /* GLEW.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F689F0FB17AFC81A00A74DEA /* GLEW.framework */; };
 		F689F12B17AFD18700A74DEA /* libluajit-5.1.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F689F12917AFD17E00A74DEA /* libluajit-5.1.a */; };
 		F6E7BC8C17AFC00A00B9D2B2 /* GLM.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F6E7BC8B17AFC00A00B9D2B2 /* GLM.framework */; };
-		F6EFD1F917B10D7500CAB3E3 /* ComponentPool.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F6EFD1F717B10D7500CAB3E3 /* ComponentPool.cpp */; };
-		F6EFD1FC17B1167800CAB3E3 /* ChainPool.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F6EFD1FA17B1167800CAB3E3 /* ChainPool.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -38,6 +37,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		F619A69F17B13465009ABFBC /* Entity.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Entity.cpp; sourceTree = "<group>"; };
+		F619A6A017B13465009ABFBC /* Entity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Entity.h; sourceTree = "<group>"; };
 		F6434ACF17AFE7E10018BDC9 /* Component.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Component.cpp; sourceTree = "<group>"; };
 		F6434AD017AFE7E10018BDC9 /* Component.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Component.h; sourceTree = "<group>"; };
 		F6434AD317AFE8F80018BDC9 /* World.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = World.cpp; sourceTree = "<group>"; };
@@ -53,10 +54,6 @@
 		F689F0FB17AFC81A00A74DEA /* GLEW.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GLEW.framework; path = "../../../Library/Developer/Xcode/DerivedData/Baldur-btwkzdokouqopcbnsjpypviqwbxp/Build/Products/Debug/GLEW.framework"; sourceTree = "<group>"; };
 		F689F12917AFD17E00A74DEA /* libluajit-5.1.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libluajit-5.1.a"; path = "/usr/local/lib/libluajit-5.1.a"; sourceTree = "<absolute>"; };
 		F6E7BC8B17AFC00A00B9D2B2 /* GLM.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GLM.framework; path = "../../../Library/Developer/Xcode/DerivedData/Baldur-btwkzdokouqopcbnsjpypviqwbxp/Build/Products/Debug/GLM.framework"; sourceTree = "<group>"; };
-		F6EFD1F717B10D7500CAB3E3 /* ComponentPool.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ComponentPool.cpp; sourceTree = "<group>"; };
-		F6EFD1F817B10D7500CAB3E3 /* ComponentPool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ComponentPool.h; sourceTree = "<group>"; };
-		F6EFD1FA17B1167800CAB3E3 /* ChainPool.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ChainPool.cpp; sourceTree = "<group>"; };
-		F6EFD1FB17B1167800CAB3E3 /* ChainPool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChainPool.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -133,10 +130,8 @@
 				F6434AD017AFE7E10018BDC9 /* Component.h */,
 				F6434AD317AFE8F80018BDC9 /* World.cpp */,
 				F6434AD417AFE8F80018BDC9 /* World.h */,
-				F6EFD1F717B10D7500CAB3E3 /* ComponentPool.cpp */,
-				F6EFD1F817B10D7500CAB3E3 /* ComponentPool.h */,
-				F6EFD1FA17B1167800CAB3E3 /* ChainPool.cpp */,
-				F6EFD1FB17B1167800CAB3E3 /* ChainPool.h */,
+				F619A69F17B13465009ABFBC /* Entity.cpp */,
+				F619A6A017B13465009ABFBC /* Entity.h */,
 			);
 			path = src;
 			sourceTree = "<group>";
@@ -206,8 +201,7 @@
 				F6836F1017AFBB8000F0D669 /* main.mm in Sources */,
 				F6434AD117AFE7E10018BDC9 /* Component.cpp in Sources */,
 				F6434AD517AFE8F80018BDC9 /* World.cpp in Sources */,
-				F6EFD1F917B10D7500CAB3E3 /* ComponentPool.cpp in Sources */,
-				F6EFD1FC17B1167800CAB3E3 /* ChainPool.cpp in Sources */,
+				F619A6A117B13465009ABFBC /* Entity.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
