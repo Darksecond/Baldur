@@ -10,6 +10,8 @@
 		F619A6A117B13465009ABFBC /* Entity.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F619A69F17B13465009ABFBC /* Entity.cpp */; };
 		F6434AD117AFE7E10018BDC9 /* Component.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F6434ACF17AFE7E10018BDC9 /* Component.cpp */; };
 		F6434AD517AFE8F80018BDC9 /* World.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F6434AD317AFE8F80018BDC9 /* World.cpp */; };
+		F6765AED17B160360030D33F /* Event.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F6765AEB17B160360030D33F /* Event.cpp */; };
+		F6765AEE17B162C70030D33F /* System.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F6765AE817B15D2E0030D33F /* System.cpp */; };
 		F6836F0417AFBB8000F0D669 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F6836F0317AFBB8000F0D669 /* Cocoa.framework */; };
 		F6836F1017AFBB8000F0D669 /* main.mm in Sources */ = {isa = PBXBuildFile; fileRef = F6836F0F17AFBB8000F0D669 /* main.mm */; };
 		F689F0C517AFC61400A74DEA /* GLFW.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F689F0C117AFC54100A74DEA /* GLFW.framework */; };
@@ -43,6 +45,10 @@
 		F6434AD017AFE7E10018BDC9 /* Component.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Component.h; sourceTree = "<group>"; };
 		F6434AD317AFE8F80018BDC9 /* World.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = World.cpp; sourceTree = "<group>"; };
 		F6434AD417AFE8F80018BDC9 /* World.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = World.h; sourceTree = "<group>"; };
+		F6765AE817B15D2E0030D33F /* System.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = System.cpp; sourceTree = "<group>"; };
+		F6765AE917B15D2E0030D33F /* System.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = System.h; sourceTree = "<group>"; };
+		F6765AEB17B160360030D33F /* Event.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Event.cpp; sourceTree = "<group>"; };
+		F6765AEC17B160360030D33F /* Event.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Event.h; sourceTree = "<group>"; };
 		F6836F0017AFBB8000F0D669 /* Baldur.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Baldur.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F6836F0317AFBB8000F0D669 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		F6836F0617AFBB8000F0D669 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
@@ -132,6 +138,10 @@
 				F6434AD417AFE8F80018BDC9 /* World.h */,
 				F619A69F17B13465009ABFBC /* Entity.cpp */,
 				F619A6A017B13465009ABFBC /* Entity.h */,
+				F6765AE817B15D2E0030D33F /* System.cpp */,
+				F6765AE917B15D2E0030D33F /* System.h */,
+				F6765AEB17B160360030D33F /* Event.cpp */,
+				F6765AEC17B160360030D33F /* Event.h */,
 			);
 			path = src;
 			sourceTree = "<group>";
@@ -202,6 +212,8 @@
 				F6434AD117AFE7E10018BDC9 /* Component.cpp in Sources */,
 				F6434AD517AFE8F80018BDC9 /* World.cpp in Sources */,
 				F619A6A117B13465009ABFBC /* Entity.cpp in Sources */,
+				F6765AED17B160360030D33F /* Event.cpp in Sources */,
+				F6765AEE17B162C70030D33F /* System.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

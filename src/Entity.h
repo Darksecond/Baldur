@@ -4,6 +4,7 @@
 #include <list>
 
 #include "Component.h"
+#include "Event.h"
 
 class Entity {
 public:
@@ -23,11 +24,25 @@ public:
     C* createComponent() {
         C* new_c = new C();
         _components[C::type()].push_back(new_c);
+        
+        Event e = {
+            .type = EventType::COMPONENT_CREATED,
+            .entity = this,
+        };
+        events::sendEvent(e);
+        
         return new_c;
     }
     
     template <typename C>
     void destroyComponent(C* component) {
+        
+        Event e = {
+            .type = EventType::COMPONENT_DESTROYED,
+            .entity = this,
+        };
+        events::sendEvent(e, true);
+        
         _components[C::type()].remove(component);
     }
     
