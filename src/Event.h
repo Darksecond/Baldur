@@ -8,12 +8,14 @@ enum class EventType {
     ENTITY_DESTROYED,
     COMPONENT_CREATED,
     COMPONENT_DESTROYED,
+    KEY_PRESSED,
 };
 
 struct Event {
     EventType type;
     union {
         Entity* entity;
+        int key;
     };
 };
 

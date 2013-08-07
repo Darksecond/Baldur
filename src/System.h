@@ -11,12 +11,14 @@ public:
     
     World* world() { return _world; }
     
-    virtual void step(int pass, double delta) = 0;
+    virtual void init() = 0;
+    virtual void shutdown() = 0;
+    virtual bool step(int pass, double delta) = 0;
 private:
     World* _world;
 };
 
 namespace systems {
     void registerSystem(System* system);
-    void step(int pass, double delta);
+    bool step(int pass, double delta);
 }

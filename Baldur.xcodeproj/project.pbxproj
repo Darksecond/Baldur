@@ -7,13 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F600EC7B17B240C100DFE37E /* Game.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F600EC7917B240C100DFE37E /* Game.cpp */; };
+		F600EC7D17B240E500DFE37E /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F600EC7C17B240E500DFE37E /* main.cpp */; };
+		F600EC7F17B2438700DFE37E /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F600EC7E17B2438700DFE37E /* OpenGL.framework */; };
+		F600EC8417B245EE00DFE37E /* InputSystem.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F600EC8217B245EE00DFE37E /* InputSystem.cpp */; };
 		F619A6A117B13465009ABFBC /* Entity.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F619A69F17B13465009ABFBC /* Entity.cpp */; };
 		F6434AD117AFE7E10018BDC9 /* Component.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F6434ACF17AFE7E10018BDC9 /* Component.cpp */; };
 		F6434AD517AFE8F80018BDC9 /* World.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F6434AD317AFE8F80018BDC9 /* World.cpp */; };
 		F6765AED17B160360030D33F /* Event.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F6765AEB17B160360030D33F /* Event.cpp */; };
 		F6765AEE17B162C70030D33F /* System.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F6765AE817B15D2E0030D33F /* System.cpp */; };
 		F6836F0417AFBB8000F0D669 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F6836F0317AFBB8000F0D669 /* Cocoa.framework */; };
-		F6836F1017AFBB8000F0D669 /* main.mm in Sources */ = {isa = PBXBuildFile; fileRef = F6836F0F17AFBB8000F0D669 /* main.mm */; };
 		F689F0C517AFC61400A74DEA /* GLFW.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F689F0C117AFC54100A74DEA /* GLFW.framework */; };
 		F689F0C617AFC67C00A74DEA /* GLFW.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = F689F0C117AFC54100A74DEA /* GLFW.framework */; };
 		F689F0C717AFC69E00A74DEA /* GLM.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = F6E7BC8B17AFC00A00B9D2B2 /* GLM.framework */; };
@@ -39,6 +42,13 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		F600EC7917B240C100DFE37E /* Game.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Game.cpp; sourceTree = "<group>"; };
+		F600EC7A17B240C100DFE37E /* Game.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Game.h; sourceTree = "<group>"; };
+		F600EC7C17B240E500DFE37E /* main.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
+		F600EC7E17B2438700DFE37E /* OpenGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGL.framework; path = System/Library/Frameworks/OpenGL.framework; sourceTree = SDKROOT; };
+		F600EC8217B245EE00DFE37E /* InputSystem.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = InputSystem.cpp; sourceTree = "<group>"; };
+		F600EC8317B245EE00DFE37E /* InputSystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InputSystem.h; sourceTree = "<group>"; };
+		F600EC8517B24DA800DFE37E /* MouseComponent.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MouseComponent.h; sourceTree = "<group>"; };
 		F619A69F17B13465009ABFBC /* Entity.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Entity.cpp; sourceTree = "<group>"; };
 		F619A6A017B13465009ABFBC /* Entity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Entity.h; sourceTree = "<group>"; };
 		F6434ACF17AFE7E10018BDC9 /* Component.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Component.cpp; sourceTree = "<group>"; };
@@ -55,7 +65,6 @@
 		F6836F0717AFBB8000F0D669 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		F6836F0817AFBB8000F0D669 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		F6836F0B17AFBB8000F0D669 /* Baldur-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Baldur-Info.plist"; sourceTree = "<group>"; };
-		F6836F0F17AFBB8000F0D669 /* main.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = main.mm; sourceTree = "<group>"; };
 		F689F0C117AFC54100A74DEA /* GLFW.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GLFW.framework; path = "../../../Library/Developer/Xcode/DerivedData/Baldur-btwkzdokouqopcbnsjpypviqwbxp/Build/Products/Debug/GLFW.framework"; sourceTree = "<group>"; };
 		F689F0FB17AFC81A00A74DEA /* GLEW.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GLEW.framework; path = "../../../Library/Developer/Xcode/DerivedData/Baldur-btwkzdokouqopcbnsjpypviqwbxp/Build/Products/Debug/GLEW.framework"; sourceTree = "<group>"; };
 		F689F12917AFD17E00A74DEA /* libluajit-5.1.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libluajit-5.1.a"; path = "/usr/local/lib/libluajit-5.1.a"; sourceTree = "<absolute>"; };
@@ -67,6 +76,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F600EC7F17B2438700DFE37E /* OpenGL.framework in Frameworks */,
 				F689F0FE17AFC83400A74DEA /* GLEW.framework in Frameworks */,
 				F689F0C517AFC61400A74DEA /* GLFW.framework in Frameworks */,
 				F6E7BC8C17AFC00A00B9D2B2 /* GLM.framework in Frameworks */,
@@ -78,9 +88,27 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		F600EC8017B2453200DFE37E /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				F600EC8517B24DA800DFE37E /* MouseComponent.h */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		F600EC8117B2454E00DFE37E /* Systems */ = {
+			isa = PBXGroup;
+			children = (
+				F600EC8217B245EE00DFE37E /* InputSystem.cpp */,
+				F600EC8317B245EE00DFE37E /* InputSystem.h */,
+			);
+			path = Systems;
+			sourceTree = "<group>";
+		};
 		F6836EF717AFBB8000F0D669 = {
 			isa = PBXGroup;
 			children = (
+				F600EC7E17B2438700DFE37E /* OpenGL.framework */,
 				F6836F2017AFBC9200F0D669 /* src */,
 				F6836F0A17AFBB8000F0D669 /* Supporting Files */,
 				F6836F0217AFBB8000F0D669 /* Frameworks */,
@@ -123,7 +151,6 @@
 			isa = PBXGroup;
 			children = (
 				F6836F0B17AFBB8000F0D669 /* Baldur-Info.plist */,
-				F6836F0F17AFBB8000F0D669 /* main.mm */,
 			);
 			name = "Supporting Files";
 			path = osx;
@@ -132,6 +159,8 @@
 		F6836F2017AFBC9200F0D669 /* src */ = {
 			isa = PBXGroup;
 			children = (
+				F600EC8117B2454E00DFE37E /* Systems */,
+				F600EC8017B2453200DFE37E /* Components */,
 				F6434ACF17AFE7E10018BDC9 /* Component.cpp */,
 				F6434AD017AFE7E10018BDC9 /* Component.h */,
 				F6434AD317AFE8F80018BDC9 /* World.cpp */,
@@ -142,6 +171,9 @@
 				F6765AE917B15D2E0030D33F /* System.h */,
 				F6765AEB17B160360030D33F /* Event.cpp */,
 				F6765AEC17B160360030D33F /* Event.h */,
+				F600EC7917B240C100DFE37E /* Game.cpp */,
+				F600EC7A17B240C100DFE37E /* Game.h */,
+				F600EC7C17B240E500DFE37E /* main.cpp */,
 			);
 			path = src;
 			sourceTree = "<group>";
@@ -208,12 +240,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F6836F1017AFBB8000F0D669 /* main.mm in Sources */,
 				F6434AD117AFE7E10018BDC9 /* Component.cpp in Sources */,
 				F6434AD517AFE8F80018BDC9 /* World.cpp in Sources */,
 				F619A6A117B13465009ABFBC /* Entity.cpp in Sources */,
 				F6765AED17B160360030D33F /* Event.cpp in Sources */,
 				F6765AEE17B162C70030D33F /* System.cpp in Sources */,
+				F600EC7B17B240C100DFE37E /* Game.cpp in Sources */,
+				F600EC7D17B240E500DFE37E /* main.cpp in Sources */,
+				F600EC8417B245EE00DFE37E /* InputSystem.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
