@@ -72,6 +72,20 @@ public:
         return entity->components<C>();
     }
     
+    template <typename C>
+    C* component(Entity* entity) {
+        return entity->component<C>();
+    }
+    
+    std::list<Entity*> entities() {
+        std::list<Entity*> entity_list;
+        for(auto pair : _entities) {
+            if(pair.second != nullptr)
+                entity_list.push_back(pair.second);
+        }
+        return entity_list;
+    }
+    
 private:
     std::map<const char*, Entity*> _entities;
     std::map<BaseComponent::type_t, std::list<BaseComponent*>> _components;

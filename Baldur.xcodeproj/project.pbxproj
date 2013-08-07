@@ -14,6 +14,10 @@
 		F619A6A117B13465009ABFBC /* Entity.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F619A69F17B13465009ABFBC /* Entity.cpp */; };
 		F6434AD117AFE7E10018BDC9 /* Component.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F6434ACF17AFE7E10018BDC9 /* Component.cpp */; };
 		F6434AD517AFE8F80018BDC9 /* World.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F6434AD317AFE8F80018BDC9 /* World.cpp */; };
+		F65E765117B26FA500AC6807 /* Spatial.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F65E764F17B26FA500AC6807 /* Spatial.cpp */; };
+		F65E765717B272FA00AC6807 /* RenderSystem.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F65E765517B272FA00AC6807 /* RenderSystem.cpp */; };
+		F65E765917B2758500AC6807 /* resource_dir.mm in Sources */ = {isa = PBXBuildFile; fileRef = F65E765817B2758500AC6807 /* resource_dir.mm */; };
+		F65E765C17B2765500AC6807 /* Resources in Resources */ = {isa = PBXBuildFile; fileRef = F65E765B17B2764D00AC6807 /* Resources */; };
 		F6765AED17B160360030D33F /* Event.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F6765AEB17B160360030D33F /* Event.cpp */; };
 		F6765AEE17B162C70030D33F /* System.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F6765AE817B15D2E0030D33F /* System.cpp */; };
 		F6836F0417AFBB8000F0D669 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F6836F0317AFBB8000F0D669 /* Cocoa.framework */; };
@@ -34,7 +38,7 @@
 		F6B772D317B2597500DBF972 /* resource_factory.cc in Sources */ = {isa = PBXBuildFile; fileRef = F6B772CF17B2597500DBF972 /* resource_factory.cc */; };
 		F6B772D617B2598300DBF972 /* Shader.cc in Sources */ = {isa = PBXBuildFile; fileRef = F6B772D417B2598300DBF972 /* Shader.cc */; };
 		F6B772D917B2599000DBF972 /* StreamReader.cc in Sources */ = {isa = PBXBuildFile; fileRef = F6B772D717B2599000DBF972 /* StreamReader.cc */; };
-		F6B772DC17B2599400DBF972 /* stb_image.c in Sources */ = {isa = PBXBuildFile; fileRef = F6B772DA17B2599400DBF972 /* stb_image.c */; };
+		F6B772DC17B2599400DBF972 /* stb_image.c in Sources */ = {isa = PBXBuildFile; fileRef = F6B772DA17B2599400DBF972 /* stb_image.c */; settings = {COMPILER_FLAGS = "-w"; }; };
 		F6B772DF17B2599C00DBF972 /* Texture.cc in Sources */ = {isa = PBXBuildFile; fileRef = F6B772DD17B2599C00DBF972 /* Texture.cc */; };
 		F6B772E317B259B700DBF972 /* Bitmap.cc in Sources */ = {isa = PBXBuildFile; fileRef = F6B772E117B259B700DBF972 /* Bitmap.cc */; };
 		F6E7BC8C17AFC00A00B9D2B2 /* GLM.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F6E7BC8B17AFC00A00B9D2B2 /* GLM.framework */; };
@@ -69,6 +73,19 @@
 		F6434AD017AFE7E10018BDC9 /* Component.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Component.h; sourceTree = "<group>"; };
 		F6434AD317AFE8F80018BDC9 /* World.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = World.cpp; sourceTree = "<group>"; };
 		F6434AD417AFE8F80018BDC9 /* World.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = World.h; sourceTree = "<group>"; };
+		F65E764F17B26FA500AC6807 /* Spatial.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Spatial.cpp; sourceTree = "<group>"; };
+		F65E765017B26FA500AC6807 /* Spatial.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Spatial.h; sourceTree = "<group>"; };
+		F65E765217B271A900AC6807 /* SpatialComponent.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SpatialComponent.h; sourceTree = "<group>"; };
+		F65E765317B271D600AC6807 /* ModelComponent.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ModelComponent.h; sourceTree = "<group>"; };
+		F65E765417B272A500AC6807 /* CameraComponent.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CameraComponent.h; sourceTree = "<group>"; };
+		F65E765517B272FA00AC6807 /* RenderSystem.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = RenderSystem.cpp; sourceTree = "<group>"; };
+		F65E765617B272FA00AC6807 /* RenderSystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RenderSystem.h; sourceTree = "<group>"; };
+		F65E765817B2758500AC6807 /* resource_dir.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = resource_dir.mm; path = osx/resource_dir.mm; sourceTree = SOURCE_ROOT; };
+		F65E765A17B275BA00AC6807 /* resource_dir.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = resource_dir.h; sourceTree = "<group>"; };
+		F65E765B17B2764D00AC6807 /* Resources */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Resources; path = ../Resources; sourceTree = "<group>"; };
+		F65E765D17B27CE200AC6807 /* render_command.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = render_command.h; sourceTree = "<group>"; };
+		F65E765E17B27CE300AC6807 /* render_frame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = render_frame.h; sourceTree = "<group>"; };
+		F65E765F17B27CED00AC6807 /* commands.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = commands.h; sourceTree = "<group>"; };
 		F6765AE817B15D2E0030D33F /* System.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = System.cpp; sourceTree = "<group>"; };
 		F6765AE917B15D2E0030D33F /* System.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = System.h; sourceTree = "<group>"; };
 		F6765AEB17B160360030D33F /* Event.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Event.cpp; sourceTree = "<group>"; };
@@ -139,6 +156,9 @@
 			isa = PBXGroup;
 			children = (
 				F600EC8517B24DA800DFE37E /* MouseComponent.h */,
+				F65E765217B271A900AC6807 /* SpatialComponent.h */,
+				F65E765317B271D600AC6807 /* ModelComponent.h */,
+				F65E765417B272A500AC6807 /* CameraComponent.h */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -148,6 +168,8 @@
 			children = (
 				F600EC8217B245EE00DFE37E /* InputSystem.cpp */,
 				F600EC8317B245EE00DFE37E /* InputSystem.h */,
+				F65E765517B272FA00AC6807 /* RenderSystem.cpp */,
+				F65E765617B272FA00AC6807 /* RenderSystem.h */,
 			);
 			path = Systems;
 			sourceTree = "<group>";
@@ -157,6 +179,7 @@
 			children = (
 				F6836F2017AFBC9200F0D669 /* src */,
 				F6836F0A17AFBB8000F0D669 /* Supporting Files */,
+				F65E765B17B2764D00AC6807 /* Resources */,
 				F6836F0217AFBB8000F0D669 /* Frameworks */,
 				F6836F0117AFBB8000F0D669 /* Products */,
 			);
@@ -222,6 +245,13 @@
 				F600EC7917B240C100DFE37E /* Game.cpp */,
 				F600EC7A17B240C100DFE37E /* Game.h */,
 				F600EC7C17B240E500DFE37E /* main.cpp */,
+				F65E764F17B26FA500AC6807 /* Spatial.cpp */,
+				F65E765017B26FA500AC6807 /* Spatial.h */,
+				F65E765817B2758500AC6807 /* resource_dir.mm */,
+				F65E765A17B275BA00AC6807 /* resource_dir.h */,
+				F65E765D17B27CE200AC6807 /* render_command.h */,
+				F65E765E17B27CE300AC6807 /* render_frame.h */,
+				F65E765F17B27CED00AC6807 /* commands.h */,
 			);
 			path = src;
 			sourceTree = "<group>";
@@ -318,6 +348,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F65E765C17B2765500AC6807 /* Resources in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -350,6 +381,9 @@
 				F6B772DC17B2599400DBF972 /* stb_image.c in Sources */,
 				F6B772DF17B2599C00DBF972 /* Texture.cc in Sources */,
 				F6B772E317B259B700DBF972 /* Bitmap.cc in Sources */,
+				F65E765117B26FA500AC6807 /* Spatial.cpp in Sources */,
+				F65E765717B272FA00AC6807 /* RenderSystem.cpp in Sources */,
+				F65E765917B2758500AC6807 /* resource_dir.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

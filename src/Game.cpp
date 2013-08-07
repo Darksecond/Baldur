@@ -10,10 +10,14 @@
 #include "Resources/program_resource_loader.h"
 #include "Resources/Mesh.h"
 #include "Resources/Texture.h"
+#include "Resources/DirectoryManifest.h"
+#include "resource_dir.h"
 
-static const glm::vec2 SCREEN_SIZE (800, 600);
+#include "Components/SpatialComponent.h"
+#include "Components/ModelComponent.h"
+#include "Components/CameraComponent.h"
 
-Game::Game() : _input_system(&_world) {
+Game::Game() : _input_system(&_world), _render_system(&_world) {
 }
 
 void Game::init() {
@@ -24,7 +28,11 @@ void Game::init() {
     std::cout << "--- Initializing GLEW" << std::endl;
     initGLEW();
     
-    std::cout << "--- Initializing Resource Loaders" << std::endl;
+    std::cout << "--- Initializing Resource Factory" << std::endl;
+    
+    std::cout << "------ Manifest" << std::endl;
+    auto manifest = std::make_shared<Ymir::DirectoryManifest>(ResourceDirectory() + "/Resources");
+    resource_factory::instance().add_manifest(manifest);
     
     std::cout << "------ Program Loader" << std::endl;
     resource_factory::instance().add_loader("program", std::make_shared<program_resource_loader>());
@@ -37,9 +45,15 @@ void Game::init() {
     
     std::cout << "--- Initializing InputSystem" << std::endl;
     _input_system.init();
+    
+    std::cout << "--- Initializing RenderSystem" << std::endl;
+    _render_system.init();
 }
 
 void Game::shutdown() {
+    std::cout << "--- Shutting down RenderSystem" << std::endl;
+    _render_system.shutdown();
+    
     std::cout << "--- Shutting down InputSystem" << std::endl;
     _input_system.shutdown();
     
@@ -69,6 +83,25 @@ void showFPS(const char* title) {
     frames ++;
 }
 
+void Game::build() {
+    auto cube_mesh = resource_factory::instance().resource<Ymir::Mesh>("cube.obj", "mesh");
+    auto cube_tex = resource_factory::instance().resource<Ymir::Texture>("wooden-crate.jpg", "texture");
+    
+    Entity* camera = _world.createEntity("Camera");
+    auto camera_spatial = _world.createComponent<SpatialComponent>(camera);
+    auto camera_camera = _world.createComponent<CameraComponent>(camera);
+    camera_camera->FoV = 45;
+    camera_spatial->spatial.translate(glm::vec3(3, 1.5, 2));
+    
+    Entity* box = _world.createEntity("Box");
+    auto box_spatial = _world.createComponent<SpatialComponent>(box);
+    auto box_model = _world.createComponent<ModelComponent>(box);
+    box_model->mesh = cube_mesh;
+    box_model->material = std::make_shared<material>(cube_tex);
+    
+    camera_spatial->spatial.look_at(box_spatial->spatial);
+}
+
 void Game::run() {
     
     bool run = true;
@@ -79,8 +112,9 @@ void Game::run() {
         last_time = this_time;
         
         events::runEvents();
-        for(int i = 0; i < 32; ++i)
+        for(int i = 0; i < 32; ++i) {
             if(systems::step(i, delta) == false) run = false;
+        }
         showFPS("Baldur");
         glfwSwapBuffers();
     }

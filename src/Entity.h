@@ -56,6 +56,15 @@ public:
         return components;
     }
     
+    template <typename C>
+    C* component() {
+        auto cs = components<C>();
+        if(cs.empty())
+            return nullptr;
+        else
+            return cs.front();
+    }
+    
 private:
     const char* _name;
     std::map<BaseComponent::type_t, std::list<BaseComponent*>> _components;
