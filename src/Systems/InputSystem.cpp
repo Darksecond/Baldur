@@ -22,10 +22,10 @@ bool InputSystem::step(int pass, double delta) {
     if(pass != 0) return true;
     
     //KEYBOARD
-    if(glfwGetKey('w') == GLFW_PRESS) events::sendEvent(Event{.type = EventType::KEY_PRESSED, .key = 'w'});
-    if(glfwGetKey('s') == GLFW_PRESS) events::sendEvent(Event{.type = EventType::KEY_PRESSED, .key = 's'});
-    if(glfwGetKey('a') == GLFW_PRESS) events::sendEvent(Event{.type = EventType::KEY_PRESSED, .key = 'a'});
-    if(glfwGetKey('d') == GLFW_PRESS) events::sendEvent(Event{.type = EventType::KEY_PRESSED, .key = 'd'});
+    if(glfwGetKey('W') == GLFW_PRESS) events::sendEvent(Event{.type = EventType::KEY_PRESSED, .key = 'W'});
+    if(glfwGetKey('S') == GLFW_PRESS) events::sendEvent(Event{.type = EventType::KEY_PRESSED, .key = 'S'});
+    if(glfwGetKey('A') == GLFW_PRESS) events::sendEvent(Event{.type = EventType::KEY_PRESSED, .key = 'A'});
+    if(glfwGetKey('D') == GLFW_PRESS) events::sendEvent(Event{.type = EventType::KEY_PRESSED, .key = 'D'});
     
     if(glfwGetKey(GLFW_MOUSE_BUTTON_LEFT) == GLFW_PRESS) events::sendEvent(Event{.type = EventType::KEY_PRESSED, .key = GLFW_MOUSE_BUTTON_LEFT});
     //END KEYBOARD

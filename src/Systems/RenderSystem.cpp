@@ -28,7 +28,7 @@ bool RenderSystem::step(int pass, double delta) {
     frame.add<0, render_commands::bind_program>(_texture_program);
     frame.add<0, render_commands::clear>(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
     frame.add<0, render_commands::clear_color>(0, 0, 0, 1);
-    frame.add<0, render_commands::set_culling>(false);
+    frame.add<0, render_commands::set_culling>(true);
     frame.add<0, render_commands::set_depth>(true, true);
     
     for(Entity* entity : world()->entities()) {
@@ -42,7 +42,6 @@ bool RenderSystem::step(int pass, double delta) {
                                                  0.1f,
                                                  100.0f);
             
-            //glm::mat4 view_matrix = glm::lookAt(glm::vec3(3, 1.5, 2), glm::vec3(0), glm::vec3(0,1,0));
             glm::mat4 view_matrix = glm::inverse(spatial->spatial.matrix());
             
             frame.add<0, render_commands::set_uniform<glm::mat4>>("projection", projection_matrix);
