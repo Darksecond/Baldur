@@ -2,9 +2,9 @@
 
 #include "System.h"
 
-class InputSystem : public System {
+class MovementControlSystem : public System {
 public:
-    InputSystem(World* world);
+    MovementControlSystem(World* world);
     virtual void init();
     virtual void shutdown();
     virtual bool step(int pass, double delta);

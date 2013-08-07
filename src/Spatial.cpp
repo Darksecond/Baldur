@@ -20,3 +20,19 @@ void Spatial::look_at(const Spatial& spatial) {
     glm::mat4 look_at = glm::lookAt(_position, spatial._position, glm::vec3(0,1,0));
     _rotation = glm::quat_cast(glm::inverse(look_at));
 }
+
+void Spatial::rotate(glm::vec3 axis, float angle) {
+    _rotation = glm::rotate(_rotation, angle, axis);
+}
+
+glm::vec3 Spatial::forward() const {
+    return glm::normalize(glm::vec3(glm::vec4(glm::mat4_cast(_rotation) * glm::vec4(0,0,-1,0))));
+}
+
+glm::vec3 Spatial::right() const {
+    return glm::normalize(glm::vec3(glm::vec4(glm::mat4_cast(_rotation) * glm::vec4(1,0,0,0))));
+}
+
+glm::vec3 Spatial::up() const {
+    return glm::normalize(glm::vec3(glm::vec4(glm::mat4_cast(_rotation) * glm::vec4(0,1,0,0))));
+}

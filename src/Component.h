@@ -2,9 +2,12 @@
 
 #include <type_traits>
 
+class Entity;
+
 class BaseComponent {
 public:
     typedef unsigned long type_t;
+    Entity* parent;
 protected:
     static type_t _type_counter;
 };

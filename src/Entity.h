@@ -23,6 +23,7 @@ public:
     template <typename C>
     C* createComponent() {
         C* new_c = new C();
+        new_c->parent = this;
         _components[C::type()].push_back(new_c);
         
         Event e = {

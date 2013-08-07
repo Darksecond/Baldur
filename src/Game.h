@@ -2,6 +2,7 @@
 
 #include "InputSystem.h"
 #include "RenderSystem.h"
+#include "MovementControlSystem.h"
 #include "World.h"
 
 class Game {
@@ -18,4 +19,5 @@ private:
     World _world;
     InputSystem _input_system;
     RenderSystem _render_system;
+    MovementControlSystem _movement_control_system;
 };

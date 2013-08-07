@@ -18,6 +18,7 @@
 		F65E765717B272FA00AC6807 /* RenderSystem.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F65E765517B272FA00AC6807 /* RenderSystem.cpp */; };
 		F65E765917B2758500AC6807 /* resource_dir.mm in Sources */ = {isa = PBXBuildFile; fileRef = F65E765817B2758500AC6807 /* resource_dir.mm */; };
 		F65E765C17B2765500AC6807 /* Resources in Resources */ = {isa = PBXBuildFile; fileRef = F65E765B17B2764D00AC6807 /* Resources */; };
+		F667025F17B29993004B05EA /* MovementControlSystem.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F667025D17B29993004B05EA /* MovementControlSystem.cpp */; };
 		F6765AED17B160360030D33F /* Event.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F6765AEB17B160360030D33F /* Event.cpp */; };
 		F6765AEE17B162C70030D33F /* System.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F6765AE817B15D2E0030D33F /* System.cpp */; };
 		F6836F0417AFBB8000F0D669 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F6836F0317AFBB8000F0D669 /* Cocoa.framework */; };
@@ -86,6 +87,9 @@
 		F65E765D17B27CE200AC6807 /* render_command.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = render_command.h; sourceTree = "<group>"; };
 		F65E765E17B27CE300AC6807 /* render_frame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = render_frame.h; sourceTree = "<group>"; };
 		F65E765F17B27CED00AC6807 /* commands.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = commands.h; sourceTree = "<group>"; };
+		F667025C17B29921004B05EA /* ControlComponent.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ControlComponent.h; sourceTree = "<group>"; };
+		F667025D17B29993004B05EA /* MovementControlSystem.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MovementControlSystem.cpp; sourceTree = "<group>"; };
+		F667025E17B29993004B05EA /* MovementControlSystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MovementControlSystem.h; sourceTree = "<group>"; };
 		F6765AE817B15D2E0030D33F /* System.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = System.cpp; sourceTree = "<group>"; };
 		F6765AE917B15D2E0030D33F /* System.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = System.h; sourceTree = "<group>"; };
 		F6765AEB17B160360030D33F /* Event.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Event.cpp; sourceTree = "<group>"; };
@@ -159,6 +163,7 @@
 				F65E765217B271A900AC6807 /* SpatialComponent.h */,
 				F65E765317B271D600AC6807 /* ModelComponent.h */,
 				F65E765417B272A500AC6807 /* CameraComponent.h */,
+				F667025C17B29921004B05EA /* ControlComponent.h */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -170,6 +175,8 @@
 				F600EC8317B245EE00DFE37E /* InputSystem.h */,
 				F65E765517B272FA00AC6807 /* RenderSystem.cpp */,
 				F65E765617B272FA00AC6807 /* RenderSystem.h */,
+				F667025D17B29993004B05EA /* MovementControlSystem.cpp */,
+				F667025E17B29993004B05EA /* MovementControlSystem.h */,
 			);
 			path = Systems;
 			sourceTree = "<group>";
@@ -384,6 +391,7 @@
 				F65E765117B26FA500AC6807 /* Spatial.cpp in Sources */,
 				F65E765717B272FA00AC6807 /* RenderSystem.cpp in Sources */,
 				F65E765917B2758500AC6807 /* resource_dir.mm in Sources */,
+				F667025F17B29993004B05EA /* MovementControlSystem.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

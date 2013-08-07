@@ -16,8 +16,9 @@
 #include "Components/SpatialComponent.h"
 #include "Components/ModelComponent.h"
 #include "Components/CameraComponent.h"
+#include "Components/ControlComponent.h"
 
-Game::Game() : _input_system(&_world), _render_system(&_world) {
+Game::Game() : _input_system(&_world), _render_system(&_world), _movement_control_system(&_world) {
 }
 
 void Game::init() {
@@ -48,9 +49,15 @@ void Game::init() {
     
     std::cout << "--- Initializing RenderSystem" << std::endl;
     _render_system.init();
+    
+    std::cout << "--- Initializing MovementControlSystem" << std::endl;
+    _movement_control_system.init();
 }
 
 void Game::shutdown() {
+    std::cout << "--- Shutting down MovementControlSystem" << std::endl;
+    _movement_control_system.shutdown();
+    
     std::cout << "--- Shutting down RenderSystem" << std::endl;
     _render_system.shutdown();
     
@@ -84,22 +91,31 @@ void showFPS(const char* title) {
 }
 
 void Game::build() {
-    auto cube_mesh = resource_factory::instance().resource<Ymir::Mesh>("cube.obj", "mesh");
+    auto cube_mesh = resource_factory::instance().resource<Ymir::Mesh>("car.obj", "mesh");
     auto cube_tex = resource_factory::instance().resource<Ymir::Texture>("wooden-crate.jpg", "texture");
     
-    Entity* camera = _world.createEntity("Camera");
-    auto camera_spatial = _world.createComponent<SpatialComponent>(camera);
-    auto camera_camera = _world.createComponent<CameraComponent>(camera);
-    camera_camera->FoV = 45;
-    camera_spatial->spatial.translate(glm::vec3(3, 1.5, 2));
-    
+    //BOX
     Entity* box = _world.createEntity("Box");
     auto box_spatial = _world.createComponent<SpatialComponent>(box);
     auto box_model = _world.createComponent<ModelComponent>(box);
     box_model->mesh = cube_mesh;
     box_model->material = std::make_shared<material>(cube_tex);
+    //END BOX
     
+    //CAMERA
+    Entity* camera = _world.createEntity("Camera");
+    auto camera_spatial = _world.createComponent<SpatialComponent>(camera);
+    auto camera_camera = _world.createComponent<CameraComponent>(camera);
+    auto camera_control = _world.createComponent<ControlComponent>(camera);
+    
+    camera_camera->FoV = 45;
+    
+    camera_spatial->spatial.translate(glm::vec3(2, 1, 2));
     camera_spatial->spatial.look_at(box_spatial->spatial);
+    
+    camera_control->control_type = ControlComponent::ControlType::FREECAM;
+    //END CAMERA
+    
 }
 
 void Game::run() {
@@ -109,10 +125,11 @@ void Game::run() {
     while(run) {
         double this_time = glfwGetTime();
         double delta = this_time - last_time;
+        if(delta > 2) delta = 1/60;
         last_time = this_time;
         
-        events::runEvents();
         for(int i = 0; i < 32; ++i) {
+            events::runEvents();
             if(systems::step(i, delta) == false) run = false;
         }
         showFPS("Baldur");
