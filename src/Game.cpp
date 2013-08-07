@@ -6,6 +6,11 @@
 #include <cassert>
 #include <iostream>
 
+#include "Resources/resource_factory.h"
+#include "Resources/program_resource_loader.h"
+#include "Resources/Mesh.h"
+#include "Resources/Texture.h"
+
 static const glm::vec2 SCREEN_SIZE (800, 600);
 
 Game::Game() : _input_system(&_world) {
@@ -13,13 +18,31 @@ Game::Game() : _input_system(&_world) {
 
 void Game::init() {
     std::cout << "--- Baldur Game engine" << std::endl;
+    std::cout << "------ Copyright Tim Peters 2013" << std::endl;
     std::cout << "--- Initializing GLFW" << std::endl;
     initGLFW();
     std::cout << "--- Initializing GLEW" << std::endl;
     initGLEW();
+    
+    std::cout << "--- Initializing Resource Loaders" << std::endl;
+    
+    std::cout << "------ Program Loader" << std::endl;
+    resource_factory::instance().add_loader("program", std::make_shared<program_resource_loader>());
+    
+    std::cout << "------ Mesh Loader" << std::endl;
+    resource_factory::instance().add_loader("mesh", std::make_shared<default_resource_loader<Ymir::Mesh>>());
+    
+    std::cout << "------ Texture Loader" << std::endl;
+    resource_factory::instance().add_loader("texture", std::make_shared<default_resource_loader<Ymir::Texture>>());
+    
+    std::cout << "--- Initializing InputSystem" << std::endl;
+    _input_system.init();
 }
 
 void Game::shutdown() {
+    std::cout << "--- Shutting down InputSystem" << std::endl;
+    _input_system.shutdown();
+    
     std::cout << "--- Shutting down GLFW" << std::endl;
     glfwTerminate();
 }
@@ -82,10 +105,10 @@ void Game::initGLEW() {
     assert(glewInit() == GLEW_OK);
     glGetError(); //ignore any errors coming from glewInit, because they can be safely ignored.
 
-    std::cout << "--- OpenGL version: " << glGetString(GL_VERSION) << std::endl;
-    std::cout << "--- GLSL version: " << glGetString(GL_SHADING_LANGUAGE_VERSION) << std::endl;
-    std::cout << "--- Vendor: " << glGetString(GL_VENDOR) << std::endl;
-    std::cout << "--- Renderer: " << glGetString(GL_RENDERER) << std::endl;
+    std::cout << "------ OpenGL version: " << glGetString(GL_VERSION) << std::endl;
+    std::cout << "------ GLSL version: " << glGetString(GL_SHADING_LANGUAGE_VERSION) << std::endl;
+    std::cout << "------ Vendor: " << glGetString(GL_VENDOR) << std::endl;
+    std::cout << "------ Renderer: " << glGetString(GL_RENDERER) << std::endl;
 
     assert(GLEW_VERSION_3_2);
 }
