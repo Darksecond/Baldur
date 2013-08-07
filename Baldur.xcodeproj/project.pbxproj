@@ -108,7 +108,6 @@
 		F6836EF717AFBB8000F0D669 = {
 			isa = PBXGroup;
 			children = (
-				F600EC7E17B2438700DFE37E /* OpenGL.framework */,
 				F6836F2017AFBC9200F0D669 /* src */,
 				F6836F0A17AFBB8000F0D669 /* Supporting Files */,
 				F6836F0217AFBB8000F0D669 /* Frameworks */,
@@ -127,6 +126,7 @@
 		F6836F0217AFBB8000F0D669 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				F600EC7E17B2438700DFE37E /* OpenGL.framework */,
 				F689F12917AFD17E00A74DEA /* libluajit-5.1.a */,
 				F689F0FB17AFC81A00A74DEA /* GLEW.framework */,
 				F689F0C117AFC54100A74DEA /* GLFW.framework */,
