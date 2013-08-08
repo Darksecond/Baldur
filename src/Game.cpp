@@ -19,8 +19,9 @@
 #include "Components/ControlComponent.h"
 #include "Components/SpatialHierarchyComponent.h"
 #include "Components/HUDTextComponent.h"
+#include "Components/TimeComponent.h"
 
-Game::Game() : _input_system(&_world), _render_system(&_world), _movement_control_system(&_world), _spatial_hierarchy_system(&_world) {
+Game::Game() : _input_system(&_world), _render_system(&_world), _movement_control_system(&_world), _spatial_hierarchy_system(&_world), _time_left_system(&_world) {
 }
 
 void Game::init() {
@@ -57,9 +58,15 @@ void Game::init() {
     
     std::cout << "--- Initializing SpatialHierarchySystem" << std::endl;
     _spatial_hierarchy_system.init();
+    
+    std::cout << "--- Initializing TimeLeftSystem" << std::endl;
+    _time_left_system.init();
 }
 
 void Game::shutdown() {
+    std::cout << "--- Shutting down TimeLeftSystem" << std::endl;
+    _time_left_system.shutdown();
+    
     std::cout << "--- Shutting down SpatialHierarchySystem" << std::endl;
     _spatial_hierarchy_system.shutdown();
     
@@ -129,6 +136,9 @@ void Game::build() {
     auto camera_camera = _world.createComponent<CameraComponent>(camera);
     auto camera_control = _world.createComponent<ControlComponent>(box); //HACK
     auto camera_hier = _world.createComponent<SpatialHierarchyComponent>(camera);
+    auto camera_time = _world.createComponent<TimeComponent>(camera);
+    
+    camera_time->time = 23; //4:23 == 263
     
     camera_camera->FoV = 45;
     

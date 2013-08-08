@@ -9,6 +9,7 @@ enum class EventType {
     COMPONENT_CREATED,
     COMPONENT_DESTROYED,
     KEY_PRESSED,
+    NO_TIME_LEFT,
 };
 
 struct Event {
