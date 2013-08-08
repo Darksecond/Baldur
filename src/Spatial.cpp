@@ -36,3 +36,13 @@ glm::vec3 Spatial::right() const {
 glm::vec3 Spatial::up() const {
     return glm::normalize(glm::vec3(glm::vec4(glm::mat4_cast(_rotation) * glm::vec4(0,1,0,0))));
 }
+
+Spatial Spatial::operator *(const Spatial& other) const {
+    Spatial global;
+    
+    global._rotation = _rotation * other._rotation;
+    global._scale = _scale * other._scale;
+    global._position = _position + _rotation * other._position;
+    
+    return global;
+}

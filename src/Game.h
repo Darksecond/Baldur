@@ -3,6 +3,8 @@
 #include "InputSystem.h"
 #include "RenderSystem.h"
 #include "MovementControlSystem.h"
+#include "SpatialHierarchySystem.h"
+
 #include "World.h"
 
 class Game {
@@ -20,4 +22,5 @@ private:
     InputSystem _input_system;
     RenderSystem _render_system;
     MovementControlSystem _movement_control_system;
+    SpatialHierarchySystem _spatial_hierarchy_system;
 };

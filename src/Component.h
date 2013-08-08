@@ -3,6 +3,7 @@
 #include <type_traits>
 
 class Entity;
+typedef Entity* EntityHandle;
 
 class BaseComponent {
 public:

@@ -14,6 +14,8 @@ public:
     glm::vec3 forward() const;
     glm::vec3 right() const;
     glm::vec3 up() const;
+    
+    Spatial operator *(const Spatial& other) const;
 private:
     glm::vec3 _position;
     glm::quat _rotation;

@@ -17,8 +17,9 @@
 #include "Components/ModelComponent.h"
 #include "Components/CameraComponent.h"
 #include "Components/ControlComponent.h"
+#include "Components/SpatialHierarchyComponent.h"
 
-Game::Game() : _input_system(&_world), _render_system(&_world), _movement_control_system(&_world) {
+Game::Game() : _input_system(&_world), _render_system(&_world), _movement_control_system(&_world), _spatial_hierarchy_system(&_world) {
 }
 
 void Game::init() {
@@ -52,9 +53,15 @@ void Game::init() {
     
     std::cout << "--- Initializing MovementControlSystem" << std::endl;
     _movement_control_system.init();
+    
+    std::cout << "--- Initializing SpatialHierarchySystem" << std::endl;
+    _spatial_hierarchy_system.init();
 }
 
 void Game::shutdown() {
+    std::cout << "--- Shutting down SpatialHierarchySystem" << std::endl;
+    _spatial_hierarchy_system.shutdown();
+    
     std::cout << "--- Shutting down MovementControlSystem" << std::endl;
     _movement_control_system.shutdown();
     
@@ -92,6 +99,7 @@ void showFPS(const char* title) {
 
 void Game::build() {
     auto cube_mesh = resource_factory::instance().resource<Ymir::Mesh>("car.obj", "mesh");
+    auto ball_mesh = resource_factory::instance().resource<Ymir::Mesh>("cube.obj", "mesh");
     auto cube_tex = resource_factory::instance().resource<Ymir::Texture>("wooden-crate.jpg", "texture");
     
     //BOX
@@ -102,11 +110,21 @@ void Game::build() {
     box_model->material = std::make_shared<material>(cube_tex);
     //END BOX
     
+    
+    //ACTUAL BOX
+    Entity* ball = _world.createEntity("Ball");
+    auto ball_spatial = _world.createComponent<SpatialComponent>(ball);
+    auto ball_model = _world.createComponent<ModelComponent>(ball);
+    ball_model->mesh = ball_mesh;
+    ball_model->material = std::make_shared<material>(cube_tex);
+    //END ACTUAL BOX
+    
     //CAMERA
     Entity* camera = _world.createEntity("Camera");
     auto camera_spatial = _world.createComponent<SpatialComponent>(camera);
     auto camera_camera = _world.createComponent<CameraComponent>(camera);
-    auto camera_control = _world.createComponent<ControlComponent>(camera);
+    auto camera_control = _world.createComponent<ControlComponent>(box); //HACK
+    auto camera_hier = _world.createComponent<SpatialHierarchyComponent>(camera);
     
     camera_camera->FoV = 45;
     
@@ -114,6 +132,10 @@ void Game::build() {
     camera_spatial->spatial.look_at(box_spatial->spatial);
     
     camera_control->control_type = ControlComponent::ControlType::FREECAM;
+    
+    camera_hier->local.translate(glm::vec3(0, 0, 2));
+    camera_hier->local.look_at(box_spatial->spatial);
+    camera_hier->owner = box;
     //END CAMERA
     
 }

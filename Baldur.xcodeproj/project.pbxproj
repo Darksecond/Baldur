@@ -22,6 +22,7 @@
 		F6765AED17B160360030D33F /* Event.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F6765AEB17B160360030D33F /* Event.cpp */; };
 		F6765AEE17B162C70030D33F /* System.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F6765AE817B15D2E0030D33F /* System.cpp */; };
 		F6836F0417AFBB8000F0D669 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F6836F0317AFBB8000F0D669 /* Cocoa.framework */; };
+		F688BC9417B39D48002E33C4 /* SpatialHierarchySystem.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F688BC9217B39D48002E33C4 /* SpatialHierarchySystem.cpp */; };
 		F689F0C517AFC61400A74DEA /* GLFW.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F689F0C117AFC54100A74DEA /* GLFW.framework */; };
 		F689F0C617AFC67C00A74DEA /* GLFW.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = F689F0C117AFC54100A74DEA /* GLFW.framework */; };
 		F689F0C717AFC69E00A74DEA /* GLM.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = F6E7BC8B17AFC00A00B9D2B2 /* GLM.framework */; };
@@ -100,6 +101,9 @@
 		F6836F0717AFBB8000F0D669 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		F6836F0817AFBB8000F0D669 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		F6836F0B17AFBB8000F0D669 /* Baldur-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Baldur-Info.plist"; sourceTree = "<group>"; };
+		F688BC9117B39CEA002E33C4 /* SpatialHierarchyComponent.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SpatialHierarchyComponent.h; sourceTree = "<group>"; };
+		F688BC9217B39D48002E33C4 /* SpatialHierarchySystem.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SpatialHierarchySystem.cpp; sourceTree = "<group>"; };
+		F688BC9317B39D48002E33C4 /* SpatialHierarchySystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SpatialHierarchySystem.h; sourceTree = "<group>"; };
 		F689F0C117AFC54100A74DEA /* GLFW.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GLFW.framework; path = "../../../Library/Developer/Xcode/DerivedData/Baldur-btwkzdokouqopcbnsjpypviqwbxp/Build/Products/Debug/GLFW.framework"; sourceTree = "<group>"; };
 		F689F0FB17AFC81A00A74DEA /* GLEW.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GLEW.framework; path = "../../../Library/Developer/Xcode/DerivedData/Baldur-btwkzdokouqopcbnsjpypviqwbxp/Build/Products/Debug/GLEW.framework"; sourceTree = "<group>"; };
 		F689F12917AFD17E00A74DEA /* libluajit-5.1.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libluajit-5.1.a"; path = "/usr/local/lib/libluajit-5.1.a"; sourceTree = "<absolute>"; };
@@ -164,6 +168,7 @@
 				F65E765317B271D600AC6807 /* ModelComponent.h */,
 				F65E765417B272A500AC6807 /* CameraComponent.h */,
 				F667025C17B29921004B05EA /* ControlComponent.h */,
+				F688BC9117B39CEA002E33C4 /* SpatialHierarchyComponent.h */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -177,6 +182,8 @@
 				F65E765617B272FA00AC6807 /* RenderSystem.h */,
 				F667025D17B29993004B05EA /* MovementControlSystem.cpp */,
 				F667025E17B29993004B05EA /* MovementControlSystem.h */,
+				F688BC9217B39D48002E33C4 /* SpatialHierarchySystem.cpp */,
+				F688BC9317B39D48002E33C4 /* SpatialHierarchySystem.h */,
 			);
 			path = Systems;
 			sourceTree = "<group>";
@@ -392,6 +399,7 @@
 				F65E765717B272FA00AC6807 /* RenderSystem.cpp in Sources */,
 				F65E765917B2758500AC6807 /* resource_dir.mm in Sources */,
 				F667025F17B29993004B05EA /* MovementControlSystem.cpp in Sources */,
+				F688BC9417B39D48002E33C4 /* SpatialHierarchySystem.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
