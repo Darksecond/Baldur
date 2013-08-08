@@ -6,7 +6,7 @@
 #include "Mesh.h"
 #include "material.h"
 #include "Texture.h"
-//#include "text.h"
+#include "text.h"
 
 #ifdef __APPLE__
     #include <GLFW/GLFW.h>
@@ -265,17 +265,15 @@ namespace render_commands
         const char* _name;
     };
     
-    /*
     class draw_text : public render_command
     {
     public:
-        draw_text(std::shared_ptr<text> text) : _text(text) {}
+        draw_text(text* text) : _text(text) {}
         inline virtual void execute()
         {
             _text->draw(*_frame->current_program());
         }
     private:
-        std::shared_ptr<text> _text;
+        text* _text;
     };
-     */
 };

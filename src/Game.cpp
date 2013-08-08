@@ -18,6 +18,7 @@
 #include "Components/CameraComponent.h"
 #include "Components/ControlComponent.h"
 #include "Components/SpatialHierarchyComponent.h"
+#include "Components/HUDTextComponent.h"
 
 Game::Game() : _input_system(&_world), _render_system(&_world), _movement_control_system(&_world), _spatial_hierarchy_system(&_world) {
 }
@@ -106,14 +107,17 @@ void Game::build() {
     Entity* box = _world.createEntity("Box");
     auto box_spatial = _world.createComponent<SpatialComponent>(box);
     auto box_model = _world.createComponent<ModelComponent>(box);
+    auto box_hud = _world.createComponent<HUDTextComponent>(box);
     box_model->mesh = cube_mesh;
     box_model->material = std::make_shared<material>(cube_tex);
+    box_hud->hud_text.set_size(24);
+    box_hud->hud_text.set_text("Hello, World!");
     //END BOX
     
     
     //ACTUAL BOX
     Entity* ball = _world.createEntity("Ball");
-    auto ball_spatial = _world.createComponent<SpatialComponent>(ball);
+    _world.createComponent<SpatialComponent>(ball);
     auto ball_model = _world.createComponent<ModelComponent>(ball);
     ball_model->mesh = ball_mesh;
     ball_model->material = std::make_shared<material>(cube_tex);

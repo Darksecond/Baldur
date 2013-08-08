@@ -4,6 +4,7 @@
 
 #include "System.h"
 #include "../Resources/Program.h"
+#include "../Resources/Texture.h"
 
 static const glm::vec2 SCREEN_SIZE (800, 600);
 
@@ -16,4 +17,6 @@ public:
     virtual void receive(const Event& event);
 private:
     std::shared_ptr<Ymir::Program> _texture_program;
+    std::shared_ptr<Ymir::Program> _overlay_program;
+    std::shared_ptr<Ymir::Texture> _text_texture;
 };

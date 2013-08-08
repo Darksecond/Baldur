@@ -5,6 +5,7 @@
 #include "../Components/SpatialComponent.h"
 #include "../Components/CameraComponent.h"
 #include "../Components/ModelComponent.h"
+#include "../Components/HUDTextComponent.h"
 
 #include "render_frame.h"
 #include "commands.h"
@@ -15,6 +16,8 @@ RenderSystem::RenderSystem(World* world) : System(world) {
 
 void RenderSystem::init() {
     _texture_program = resource_factory::instance().resource<Ymir::Program>("texture", "program");
+    _overlay_program = resource_factory::instance().resource<Ymir::Program>("overlay", "program");
+    _text_texture = resource_factory::instance().resource<Ymir::Texture>("Holstein.tga", "texture");
 }
 
 void RenderSystem::shutdown() {
@@ -30,6 +33,11 @@ bool RenderSystem::step(int pass, double delta) {
     frame.add<0, render_commands::clear_color>(0, 0, 0, 1);
     frame.add<0, render_commands::set_culling>(true);
     frame.add<0, render_commands::set_depth>(true, true);
+    
+    frame.add<2, render_commands::bind_program>(_overlay_program);
+    frame.add<2, render_commands::bind_texture>(_text_texture, GL_TEXTURE0, "myTextureSampler");
+    frame.add<2, render_commands::set_blend>(true, GL_FUNC_ADD, GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+    frame.add<2, render_commands::set_depth>(false, false);
     
     for(Entity* entity : world()->entities()) {
         SpatialComponent* spatial = world()->component<SpatialComponent>(entity);
@@ -52,6 +60,13 @@ bool RenderSystem::step(int pass, double delta) {
             
         }
     }
+    
+    for(HUDTextComponent* text : world()->components<HUDTextComponent>()) {
+        frame.add<2, render_commands::draw_text>(&text->hud_text);
+    }
+    
+    frame.add<2, render_commands::set_blend>(false);
+    frame.add<2, render_commands::set_depth>(true, true);
     
     frame.execute();
     
