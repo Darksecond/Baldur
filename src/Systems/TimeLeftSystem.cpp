@@ -13,7 +13,6 @@ TimeLeftSystem::TimeLeftSystem(World* world) : System(world) {
 }
 
 void TimeLeftSystem::init() {
-    _text_entity = world()->createEntity("TimeLeftSystem Text");
 }
 
 void TimeLeftSystem::shutdown() {
@@ -27,6 +26,7 @@ bool TimeLeftSystem::step(int pass, double delta) {
     
     for(TimeComponent* time : world()->components<TimeComponent>()) {
         if(_text_entity == nullptr) {
+            _text_entity = world()->createEntity("TimeLeftSystem Text");
             HUDTextComponent* text = world()->createComponent<HUDTextComponent>(_text_entity);
             text->hud_text.set_size(25);
             text->hud_text.set_text("Time left: 0:0");
@@ -49,7 +49,8 @@ bool TimeLeftSystem::step(int pass, double delta) {
     
     std::stringstream time_left_text;
     time_left_text << "Time left: " << minutes << ":" << seconds;
-    text->hud_text.set_text(time_left_text.str());
+    if(_text_entity != nullptr)
+        text->hud_text.set_text(time_left_text.str());
     
     return true;
 }

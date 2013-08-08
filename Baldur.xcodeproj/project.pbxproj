@@ -15,6 +15,7 @@
 		F624276717B3AE5F0015D646 /* text.cc in Sources */ = {isa = PBXBuildFile; fileRef = F624276517B3AE5F0015D646 /* text.cc */; };
 		F6434AD117AFE7E10018BDC9 /* Component.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F6434ACF17AFE7E10018BDC9 /* Component.cpp */; };
 		F6434AD517AFE8F80018BDC9 /* World.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F6434AD317AFE8F80018BDC9 /* World.cpp */; };
+		F6466ACF17B3E35700A8A449 /* TTLSystem.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F6466ACD17B3E35700A8A449 /* TTLSystem.cpp */; };
 		F65E765117B26FA500AC6807 /* Spatial.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F65E764F17B26FA500AC6807 /* Spatial.cpp */; };
 		F65E765717B272FA00AC6807 /* RenderSystem.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F65E765517B272FA00AC6807 /* RenderSystem.cpp */; };
 		F65E765917B2758500AC6807 /* resource_dir.mm in Sources */ = {isa = PBXBuildFile; fileRef = F65E765817B2758500AC6807 /* resource_dir.mm */; };
@@ -80,6 +81,9 @@
 		F6434AD017AFE7E10018BDC9 /* Component.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Component.h; sourceTree = "<group>"; };
 		F6434AD317AFE8F80018BDC9 /* World.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = World.cpp; sourceTree = "<group>"; };
 		F6434AD417AFE8F80018BDC9 /* World.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = World.h; sourceTree = "<group>"; };
+		F6466ACC17B3E32500A8A449 /* TTLComponent.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TTLComponent.h; sourceTree = "<group>"; };
+		F6466ACD17B3E35700A8A449 /* TTLSystem.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TTLSystem.cpp; sourceTree = "<group>"; };
+		F6466ACE17B3E35700A8A449 /* TTLSystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTLSystem.h; sourceTree = "<group>"; };
 		F65E764F17B26FA500AC6807 /* Spatial.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Spatial.cpp; sourceTree = "<group>"; };
 		F65E765017B26FA500AC6807 /* Spatial.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Spatial.h; sourceTree = "<group>"; };
 		F65E765217B271A900AC6807 /* SpatialComponent.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SpatialComponent.h; sourceTree = "<group>"; };
@@ -179,6 +183,7 @@
 				F688BC9117B39CEA002E33C4 /* SpatialHierarchyComponent.h */,
 				F624276817B3AF310015D646 /* HUDTextComponent.h */,
 				F68A011B17B3C155005CB4E6 /* TimeComponent.h */,
+				F6466ACC17B3E32500A8A449 /* TTLComponent.h */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -196,6 +201,8 @@
 				F688BC9317B39D48002E33C4 /* SpatialHierarchySystem.h */,
 				F68A011817B3BFF9005CB4E6 /* TimeLeftSystem.cpp */,
 				F68A011917B3BFF9005CB4E6 /* TimeLeftSystem.h */,
+				F6466ACD17B3E35700A8A449 /* TTLSystem.cpp */,
+				F6466ACE17B3E35700A8A449 /* TTLSystem.h */,
 			);
 			path = Systems;
 			sourceTree = "<group>";
@@ -416,6 +423,7 @@
 				F688BC9417B39D48002E33C4 /* SpatialHierarchySystem.cpp in Sources */,
 				F624276717B3AE5F0015D646 /* text.cc in Sources */,
 				F68A011A17B3BFF9005CB4E6 /* TimeLeftSystem.cpp in Sources */,
+				F6466ACF17B3E35700A8A449 /* TTLSystem.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

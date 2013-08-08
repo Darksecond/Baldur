@@ -8,17 +8,13 @@
 
 class Entity {
 public:
-    Entity(const char* name) : _name(name) {}
+    Entity(const char* name);
+    Entity(const Entity&) = delete;
+    Entity& operator=(const Entity&) = delete;
     
-    ~Entity() {
-        for(auto c : _components) {
-            for(auto cc : c.second) {
-                delete cc;
-            }
-        }
-    }
+    ~Entity();
     
-    const char* name() { return _name; }
+    const char* name() const;
     
     template <typename C>
     C* createComponent() {

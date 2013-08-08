@@ -20,8 +20,9 @@
 #include "Components/SpatialHierarchyComponent.h"
 #include "Components/HUDTextComponent.h"
 #include "Components/TimeComponent.h"
+#include "Components/TTLComponent.h"
 
-Game::Game() : _input_system(&_world), _render_system(&_world), _movement_control_system(&_world), _spatial_hierarchy_system(&_world), _time_left_system(&_world) {
+Game::Game() : _input_system(&_world), _render_system(&_world), _movement_control_system(&_world), _spatial_hierarchy_system(&_world), _time_left_system(&_world), _ttl_system(&_world) {
 }
 
 void Game::init() {
@@ -61,9 +62,15 @@ void Game::init() {
     
     std::cout << "--- Initializing TimeLeftSystem" << std::endl;
     _time_left_system.init();
+    
+    std::cout << "--- Initializing TTLSystem" << std::endl;
+    _ttl_system.init();
 }
 
 void Game::shutdown() {
+    std::cout << "--- Shutting down TTLSystem" << std::endl;
+    _ttl_system.shutdown();
+    
     std::cout << "--- Shutting down TimeLeftSystem" << std::endl;
     _time_left_system.shutdown();
     
@@ -128,6 +135,8 @@ void Game::build() {
     auto ball_model = _world.createComponent<ModelComponent>(ball);
     ball_model->mesh = ball_mesh;
     ball_model->material = std::make_shared<material>(cube_tex);
+    auto ball_ttl = _world.createComponent<TTLComponent>(ball);
+    ball_ttl->ttl = 2;
     //END ACTUAL BOX
     
     //CAMERA
