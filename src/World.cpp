@@ -17,7 +17,7 @@ EntityHandle World::createEntity(const char* name) {
         .type = EventType::ENTITY_CREATED,
         .entity = e,
     };
-    events::sendEvent(event);
+    events::sendEvent(event, true);
     
     return e;
 }
@@ -52,4 +52,8 @@ std::list<EntityHandle> World::entities() {
             entity_list.push_back(pair.second);
     }
     return entity_list;
+}
+
+const char* World::name(const EntityHandle entity) const {
+    return entity->name();
 }

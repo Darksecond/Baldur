@@ -136,7 +136,7 @@ void Game::build() {
     ball_model->mesh = ball_mesh;
     ball_model->material = std::make_shared<material>(cube_tex);
     auto ball_ttl = _world.createComponent<TTLComponent>(ball);
-    ball_ttl->ttl = 2;
+    ball_ttl->ttl = 128;
     //END ACTUAL BOX
     
     //CAMERA
@@ -147,7 +147,7 @@ void Game::build() {
     auto camera_hier = _world.createComponent<SpatialHierarchyComponent>(camera);
     auto camera_time = _world.createComponent<TimeComponent>(camera);
     
-    camera_time->time = 23; //4:23 == 263
+    camera_time->time = 263; //4:23 == 263
     
     camera_camera->FoV = 45;
     

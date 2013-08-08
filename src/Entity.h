@@ -26,7 +26,7 @@ public:
             .type = EventType::COMPONENT_CREATED,
             .entity = this,
         };
-        events::sendEvent(e);
+        events::sendEvent(e, true);
         
         return new_c;
     }
@@ -55,7 +55,7 @@ public:
     
     template <typename C>
     C* component() {
-        auto cs = components<C>();
+        const auto& cs = components<C>();
         if(cs.empty())
             return nullptr;
         else

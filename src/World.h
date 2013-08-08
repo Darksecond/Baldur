@@ -23,6 +23,7 @@ public:
     void destroyEntity(const EntityHandle entity);
     EntityHandle resolve(const char* name);
     std::list<EntityHandle> entities();
+    const char* name(const EntityHandle entity) const;
     
     template <typename C>
     C* createComponent(EntityHandle entity) {
