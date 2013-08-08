@@ -8,6 +8,8 @@
 #include "Entity.h"
 #include "Event.h"
 
+typedef Entity* EntityHandle;
+
 class World {
 public:
     ~World() {
@@ -16,7 +18,7 @@ public:
         }
     }
     
-    Entity* createEntity(const char* name) {
+    EntityHandle createEntity(const char* name) {
         Entity* e = new Entity(name);
         _entities[name] = e;
         
@@ -29,7 +31,7 @@ public:
         return e;
     }
     
-    void destroyEntity(Entity* entity) {
+    void destroyEntity(EntityHandle entity) {
         
         Event event = {
             .type = EventType::ENTITY_DESTROYED,
@@ -41,19 +43,19 @@ public:
         delete entity;
     }
     
-    Entity* resolve(const char* name) {
+    EntityHandle resolve(const char* name) {
         return _entities[name];
     }
     
     template <typename C>
-    C* createComponent(Entity* entity) {
+    C* createComponent(EntityHandle entity) {
         C* component = entity->createComponent<C>();
         _components[C::type()].push_back(component);
         return component;
     }
     
     template <typename C>
-    void destroyComponent(Entity* entity, C* component) {
+    void destroyComponent(EntityHandle entity, C* component) {
         _components[C::type()].remove(component);
         entity->destroyComponent(component);
     }
@@ -68,17 +70,17 @@ public:
     }
     
     template <typename C>
-    std::list<C*> components(Entity* entity) {
+    std::list<C*> components(EntityHandle entity) {
         return entity->components<C>();
     }
     
     template <typename C>
-    C* component(Entity* entity) {
+    C* component(EntityHandle entity) {
         return entity->component<C>();
     }
     
-    std::list<Entity*> entities() {
-        std::list<Entity*> entity_list;
+    std::list<EntityHandle> entities() {
+        std::list<EntityHandle> entity_list;
         for(auto pair : _entities) {
             if(pair.second != nullptr)
                 entity_list.push_back(pair.second);
@@ -87,6 +89,6 @@ public:
     }
     
 private:
-    std::map<const char*, Entity*> _entities;
+    std::map<const char*, EntityHandle> _entities;
     std::map<BaseComponent::type_t, std::list<BaseComponent*>> _components;
 };
