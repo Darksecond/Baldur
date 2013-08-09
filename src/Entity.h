@@ -2,6 +2,7 @@
 
 #include <map>
 #include <list>
+#include <string>
 
 #include "Component.h"
 #include "Event.h"
@@ -63,6 +64,6 @@ public:
     }
     
 private:
-    const char* _name;
+    std::string _name;
     std::map<BaseComponent::type_t, std::list<BaseComponent*>> _components;
 };

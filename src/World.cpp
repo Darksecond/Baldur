@@ -11,7 +11,7 @@ World::~World() {
 
 EntityHandle World::createEntity(const char* name) {
     Entity* e = new Entity(name);
-    _entities[name] = e;
+    _entities[e->name()] = e;
     
     Event event = {
         .type = EventType::ENTITY_CREATED,

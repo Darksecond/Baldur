@@ -5,6 +5,7 @@
 #include <vector>
 #include <map>
 #include <iostream>
+#include <string>
 
 #include "Entity.h"
 #include "Event.h"
@@ -57,6 +58,6 @@ public:
         return entity->component<C>();
     }
 private:
-    std::map<const char*, EntityHandle> _entities;
+    std::map<std::string, EntityHandle> _entities;
     std::map<BaseComponent::type_t, std::list<BaseComponent*>> _components;
 };

@@ -57,3 +57,6 @@ bool TimeLeftSystem::step(int pass, double delta) {
 
 void TimeLeftSystem::receive(const Event& event) {
 }
+
+void TimeLeftSystem::build() {
+}

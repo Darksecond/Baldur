@@ -14,6 +14,7 @@ public:
     virtual void init() = 0;
     virtual void shutdown() = 0;
     virtual bool step(int pass, double delta) = 0;
+    virtual void build() = 0;
 private:
     World* _world;
 };
@@ -21,4 +22,5 @@ private:
 namespace systems {
     void registerSystem(System* system);
     bool step(int pass, double delta);
+    void build();
 }

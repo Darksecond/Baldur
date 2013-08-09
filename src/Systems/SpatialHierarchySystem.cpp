@@ -33,3 +33,6 @@ bool SpatialHierarchySystem::step(int pass, double delta) {
 
 void SpatialHierarchySystem::receive(const Event& event) {
 }
+
+void SpatialHierarchySystem::build() {
+}

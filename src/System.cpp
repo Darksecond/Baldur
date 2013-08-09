@@ -15,3 +15,9 @@ bool systems::step(int pass, double delta) {
     }
     return keep_running;
 }
+
+void systems::build() {
+    for(System* system : _systems) {
+        system->build();
+    }
+}

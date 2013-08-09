@@ -64,3 +64,6 @@ void MovementControlSystem::receive(const Event& event) {
         }
     }
 }
+
+void MovementControlSystem::build() {
+}

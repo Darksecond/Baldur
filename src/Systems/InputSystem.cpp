@@ -57,3 +57,6 @@ bool InputSystem::step(int pass, double delta) {
 
 void InputSystem::receive(const Event& event) {
 }
+
+void InputSystem::build() {
+}

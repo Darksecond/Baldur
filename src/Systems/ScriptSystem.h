@@ -1,14 +1,18 @@
-//
-//  ScriptSystem.h
-//  Baldur
-//
-//  Created by Tim Peters on 08-08-13.
-//  Copyright (c) 2013 Tim Peters. All rights reserved.
-//
+#pragma once
 
-#ifndef __Baldur__ScriptSystem__
-#define __Baldur__ScriptSystem__
+#include <luajit-2.0/lua.hpp>
 
-#include <iostream>
+#include "System.h"
 
-#endif /* defined(__Baldur__ScriptSystem__) */
+class ScriptSystem : public System {
+public:
+    ScriptSystem(World* world);
+    virtual void init();
+    virtual void shutdown();
+    virtual bool step(int pass, double delta);
+    virtual void receive(const Event& event);
+    virtual void build();
+private:
+    lua_State* _L;
+    int load(const char* identifier);
+};

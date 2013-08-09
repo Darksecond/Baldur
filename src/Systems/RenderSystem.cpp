@@ -75,3 +75,6 @@ bool RenderSystem::step(int pass, double delta) {
 
 void RenderSystem::receive(const Event& event) {
 }
+
+void RenderSystem::build() {
+}

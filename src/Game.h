@@ -6,6 +6,7 @@
 #include "SpatialHierarchySystem.h"
 #include "TimeLeftSystem.h"
 #include "TTLSystem.h"
+#include "ScriptSystem.h"
 
 #include "World.h"
 
@@ -27,4 +28,5 @@ private:
     SpatialHierarchySystem _spatial_hierarchy_system;
     TimeLeftSystem _time_left_system;
     TTLSystem _ttl_system;
+    ScriptSystem _script_sytem;
 };

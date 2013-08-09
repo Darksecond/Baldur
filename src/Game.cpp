@@ -22,7 +22,7 @@
 #include "Components/TimeComponent.h"
 #include "Components/TTLComponent.h"
 
-Game::Game() : _input_system(&_world), _render_system(&_world), _movement_control_system(&_world), _spatial_hierarchy_system(&_world), _time_left_system(&_world), _ttl_system(&_world) {
+Game::Game() : _input_system(&_world), _render_system(&_world), _movement_control_system(&_world), _spatial_hierarchy_system(&_world), _time_left_system(&_world), _ttl_system(&_world), _script_sytem(&_world) {
 }
 
 void Game::init() {
@@ -65,9 +65,15 @@ void Game::init() {
     
     std::cout << "--- Initializing TTLSystem" << std::endl;
     _ttl_system.init();
+    
+    std::cout << "--- Initializing ScriptSystem" << std::endl;
+    _script_sytem.init();
 }
 
 void Game::shutdown() {
+    std::cout << "--- Shutting down ScriptSystem" << std::endl;
+    _script_sytem.shutdown();
+    
     std::cout << "--- Shutting down TTLSystem" << std::endl;
     _ttl_system.shutdown();
     
@@ -161,6 +167,7 @@ void Game::build() {
     camera_hier->owner = box;
     //END CAMERA
     
+    systems::build();
 }
 
 void Game::run() {

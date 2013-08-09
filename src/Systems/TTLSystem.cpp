@@ -35,3 +35,6 @@ bool TTLSystem::step(int pass, double delta) {
 
 void TTLSystem::receive(const Event& event) {
 }
+
+void TTLSystem::build() {
+}
