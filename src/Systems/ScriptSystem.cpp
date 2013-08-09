@@ -78,15 +78,43 @@ static void script_registerEntity(lua_State* L) {
     luaL_register(L, "Entity", regs);
 }
 
+static int script_custom_loader(lua_State* L) {
+    std::string module = lua_tostring(L, 1);
+    module += ".lua";
+    
+    auto reader = resource_factory::instance().manifests().read(module);
+    size_t max_size = reader->size();
+    char* buff = new char[max_size];
+    size_t sz = reader->read(buff, max_size);
+    
+    luaL_loadbuffer(L, buff, sz, module.c_str());
+    return 1;
+}
+
+static void script_register_custom_loader(lua_State* L) {
+    lua_getfield(L, LUA_GLOBALSINDEX, "package");
+    lua_getfield(L, -1, "loaders");
+    lua_remove(L, -2);
+    
+    int loader_amount = 0;
+    lua_pushnil(L);
+    while(lua_next(L, -2) != 0) {
+        lua_pop(L, 1);
+        ++loader_amount;
+    }
+    
+    lua_pushinteger(L, loader_amount+1);
+    lua_pushcfunction(L, script_custom_loader);
+    lua_rawset(L,-3);
+    lua_pop(L, 1);
+}
+
 void ScriptSystem::init() {
     _L = lua_open();
     
-    luaopen_base(_L);
-    luaopen_math(_L);
-    luaopen_string(_L);
-    luaopen_table(_L);
-    luaopen_bit(_L);
+    luaL_openlibs(_L);
     
+    script_register_custom_loader(_L);
     script_registerWorld(_L);
     script_registerEntity(_L);
     
@@ -96,7 +124,7 @@ void ScriptSystem::init() {
 
 void ScriptSystem::build() {
     load("test.lua");
-    load("test2.lua");
+    //load("test2.lua");
 }
 
 void ScriptSystem::shutdown() {
