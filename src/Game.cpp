@@ -22,6 +22,9 @@
 #include "Components/TimeComponent.h"
 #include "Components/TTLComponent.h"
 
+//HACK
+#include "EntityParser/EntityParser.h"
+
 Game::Game() : _input_system(&_world), _render_system(&_world), _movement_control_system(&_world), _spatial_hierarchy_system(&_world), _time_left_system(&_world), _ttl_system(&_world), _script_sytem(&_world) {
 }
 
@@ -122,6 +125,8 @@ void Game::build() {
     auto cube_mesh = resource_factory::instance().resource<Ymir::Mesh>("car.obj", "mesh");
     auto ball_mesh = resource_factory::instance().resource<Ymir::Mesh>("cube.obj", "mesh");
     auto cube_tex = resource_factory::instance().resource<Ymir::Texture>("wooden-crate.jpg", "texture");
+    
+    EntityHandle someTestBox = _world.loadEntity("box.entity", "SomeTestBox");
     
     //BOX
     Entity* box = _world.createEntity("Box");

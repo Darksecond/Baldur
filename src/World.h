@@ -25,6 +25,7 @@ public:
     EntityHandle resolve(const char* name);
     std::list<EntityHandle> entities();
     const char* name(const EntityHandle entity) const;
+    EntityHandle loadEntity(const char* identifier, const char* name);
     
     template <typename C>
     C* createComponent(EntityHandle entity) {

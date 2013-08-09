@@ -1,4 +1,5 @@
 #include "World.h"
+#include "EntityParser.h"
 
 World::World() {
 }
@@ -56,4 +57,9 @@ std::list<EntityHandle> World::entities() {
 
 const char* World::name(const EntityHandle entity) const {
     return entity->name();
+}
+
+EntityHandle World::loadEntity(const char* identifier, const char* name) {
+    EntityParser parser;
+    return parser.parse(this, identifier, name);
 }
