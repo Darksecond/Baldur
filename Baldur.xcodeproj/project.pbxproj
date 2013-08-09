@@ -32,6 +32,8 @@
 		F689F0FE17AFC83400A74DEA /* GLEW.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F689F0FB17AFC81A00A74DEA /* GLEW.framework */; };
 		F689F12B17AFD18700A74DEA /* libluajit-5.1.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F689F12917AFD17E00A74DEA /* libluajit-5.1.a */; };
 		F68A011A17B3BFF9005CB4E6 /* TimeLeftSystem.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F68A011817B3BFF9005CB4E6 /* TimeLeftSystem.cpp */; };
+		F68C890B17B562240071E14D /* libconfig.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = F68C890817B562110071E14D /* libconfig.framework */; };
+		F68C890C17B562290071E14D /* libconfig.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F68C890817B562110071E14D /* libconfig.framework */; };
 		F6B772B817B2590C00DBF972 /* DirectoryManifest.cc in Sources */ = {isa = PBXBuildFile; fileRef = F6B772B617B2590C00DBF972 /* DirectoryManifest.cc */; };
 		F6B772BB17B2591F00DBF972 /* FileStreamReader.cc in Sources */ = {isa = PBXBuildFile; fileRef = F6B772B917B2591F00DBF972 /* FileStreamReader.cc */; };
 		F6B772BF17B2593800DBF972 /* manifest_container.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F6B772BC17B2593800DBF972 /* manifest_container.cpp */; };
@@ -60,6 +62,7 @@
 				F689F0C617AFC67C00A74DEA /* GLFW.framework in CopyFiles */,
 				F689F0FD17AFC81E00A74DEA /* GLEW.framework in CopyFiles */,
 				F689F0C717AFC69E00A74DEA /* GLM.framework in CopyFiles */,
+				F68C890B17B562240071E14D /* libconfig.framework in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -120,6 +123,7 @@
 		F68A011817B3BFF9005CB4E6 /* TimeLeftSystem.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TimeLeftSystem.cpp; sourceTree = "<group>"; };
 		F68A011917B3BFF9005CB4E6 /* TimeLeftSystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TimeLeftSystem.h; sourceTree = "<group>"; };
 		F68A011B17B3C155005CB4E6 /* TimeComponent.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TimeComponent.h; sourceTree = "<group>"; };
+		F68C890817B562110071E14D /* libconfig.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = libconfig.framework; path = "../../../Library/Developer/Xcode/DerivedData/Baldur-btwkzdokouqopcbnsjpypviqwbxp/Build/Products/Debug/libconfig.framework"; sourceTree = "<group>"; };
 		F6B772B617B2590C00DBF972 /* DirectoryManifest.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = DirectoryManifest.cc; sourceTree = "<group>"; };
 		F6B772B717B2590C00DBF972 /* DirectoryManifest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DirectoryManifest.h; sourceTree = "<group>"; };
 		F6B772B917B2591F00DBF972 /* FileStreamReader.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = FileStreamReader.cc; sourceTree = "<group>"; };
@@ -169,6 +173,7 @@
 				F6E7BC8C17AFC00A00B9D2B2 /* GLM.framework in Frameworks */,
 				F6836F0417AFBB8000F0D669 /* Cocoa.framework in Frameworks */,
 				F689F12B17AFD18700A74DEA /* libluajit-5.1.a in Frameworks */,
+				F68C890C17B562290071E14D /* libconfig.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -234,6 +239,7 @@
 		F6836F0217AFBB8000F0D669 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				F68C890817B562110071E14D /* libconfig.framework */,
 				F600EC7E17B2438700DFE37E /* OpenGL.framework */,
 				F689F12917AFD17E00A74DEA /* libluajit-5.1.a */,
 				F689F0FB17AFC81A00A74DEA /* GLEW.framework */,
