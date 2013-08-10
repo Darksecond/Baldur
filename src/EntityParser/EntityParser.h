@@ -13,4 +13,7 @@ private:
     void parse_ttl(World* world, EntityHandle entity, const libconfig::Setting& setting);
     void parse_spatial(World* world, EntityHandle entity, const libconfig::Setting& setting);
     void parse_model(World* world, EntityHandle entity, const libconfig::Setting& setting);
+    void parse_camera(World* world, EntityHandle entity, const libconfig::Setting& setting);
+    void parse_time(World* world, EntityHandle entity, const libconfig::Setting& setting);
+    void parse_control(World* world, EntityHandle entity, const libconfig::Setting& setting);
 };

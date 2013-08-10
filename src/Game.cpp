@@ -122,54 +122,28 @@ void showFPS(const char* title) {
 }
 
 void Game::build() {
-    auto cube_mesh = resource_factory::instance().resource<Ymir::Mesh>("car.obj", "mesh");
-    auto ball_mesh = resource_factory::instance().resource<Ymir::Mesh>("cube.obj", "mesh");
-    auto cube_tex = resource_factory::instance().resource<Ymir::Texture>("wooden-crate.jpg", "texture");
-    
-    EntityHandle someTestBox = _world.loadEntity("box.entity", "SomeTestBox");
+    //SHIP
+    Entity* spaceship = _world.loadEntity("spaceship.entity", "Ship");
+    auto ship_spatial = _world.component<SpatialComponent>(spaceship);
+    //END SHIP
     
     //BOX
-    Entity* box = _world.createEntity("Box");
-    auto box_spatial = _world.createComponent<SpatialComponent>(box);
-    auto box_model = _world.createComponent<ModelComponent>(box);
-    auto box_hud = _world.createComponent<HUDTextComponent>(box);
-    box_model->mesh = cube_mesh;
-    box_model->material = std::make_shared<material>(cube_tex);
-    box_hud->hud_text.set_size(24);
-    box_hud->hud_text.set_text("Hello, World!");
+    EntityHandle box = _world.loadEntity("box.entity", "Box");
+    auto box_spatial = _world.component<SpatialComponent>(box);
+    box_spatial->spatial.translate(glm::vec3(3,0,0));
     //END BOX
     
-    
-    //ACTUAL BOX
-    Entity* ball = _world.createEntity("Ball");
-    _world.createComponent<SpatialComponent>(ball);
-    auto ball_model = _world.createComponent<ModelComponent>(ball);
-    ball_model->mesh = ball_mesh;
-    ball_model->material = std::make_shared<material>(cube_tex);
-    auto ball_ttl = _world.createComponent<TTLComponent>(ball);
-    ball_ttl->ttl = 128;
-    //END ACTUAL BOX
+    //BOX
+    _world.loadEntity("box.entity", "SomeTestBox");
+    //END BOX
     
     //CAMERA
-    Entity* camera = _world.createEntity("Camera");
-    auto camera_spatial = _world.createComponent<SpatialComponent>(camera);
-    auto camera_camera = _world.createComponent<CameraComponent>(camera);
-    auto camera_control = _world.createComponent<ControlComponent>(box); //HACK
+    Entity* camera = _world.loadEntity("camera.entity", "Camera");
+    
     auto camera_hier = _world.createComponent<SpatialHierarchyComponent>(camera);
-    auto camera_time = _world.createComponent<TimeComponent>(camera);
-    
-    camera_time->time = 263; //4:23 == 263
-    
-    camera_camera->FoV = 45;
-    
-    camera_spatial->spatial.translate(glm::vec3(2, 1, 2));
-    camera_spatial->spatial.look_at(box_spatial->spatial);
-    
-    camera_control->control_type = ControlComponent::ControlType::FREECAM;
-    
     camera_hier->local.translate(glm::vec3(0, 0, 2));
-    camera_hier->local.look_at(box_spatial->spatial);
-    camera_hier->owner = box;
+    camera_hier->local.look_at(ship_spatial->spatial);
+    camera_hier->owner = spaceship;
     //END CAMERA
     
     systems::build();

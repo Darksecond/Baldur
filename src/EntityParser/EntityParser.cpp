@@ -25,6 +25,12 @@ EntityHandle EntityParser::parse(World* world, const char* identifier, const cha
             parse_spatial(world, entity, component);
         } else if(strcmp(component.getName(), "model") == 0) {
             parse_model(world, entity, component);
+        } else if(strcmp(component.getName(), "camera") == 0) {
+            parse_camera(world, entity, component);
+        } else if(strcmp(component.getName(), "time") == 0) {
+            parse_time(world, entity, component);
+        } else if(strcmp(component.getName(), "control") == 0) {
+            parse_control(world, entity, component);
         }
     }
     
@@ -72,4 +78,38 @@ void EntityParser::parse_model(World* world, EntityHandle entity, const libconfi
     
     component->mesh = resource_factory::instance().resource<Ymir::Mesh>(setting["mesh"], "mesh");
     component->material = std::make_shared<material>(resource_factory::instance().resource<Ymir::Texture>(setting["material"]["diffuse"], "texture"));
+}
+
+/*
+    camera = {
+        FoV = 45;
+    };
+*/
+#include "../Components/CameraComponent.h"
+void EntityParser::parse_camera(World* world, EntityHandle entity, const libconfig::Setting& setting) {
+    CameraComponent* component = world->createComponent<CameraComponent>(entity);
+    
+    component->FoV = setting["FoV"];
+}
+
+/*
+    time = 263;
+ */
+#include "../Components/TimeComponent.h"
+void EntityParser::parse_time(World* world, EntityHandle entity, const libconfig::Setting& setting) {
+    TimeComponent* component = world->createComponent<TimeComponent>(entity);
+    
+    component->time = setting;
+}
+
+/*
+    control = "freecam";
+*/
+#include "../Components/ControlComponent.h"
+void EntityParser::parse_control(World* world, EntityHandle entity, const libconfig::Setting& setting) {
+    ControlComponent* component = world->createComponent<ControlComponent>(entity);
+    
+    if(strcmp(setting, "freecam") == 0) {
+        component->control_type = ControlComponent::ControlType::FREECAM;
+    }
 }
