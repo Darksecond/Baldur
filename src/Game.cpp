@@ -122,30 +122,6 @@ void showFPS(const char* title) {
 }
 
 void Game::build() {
-    //SHIP
-    Entity* spaceship = _world.loadEntity("spaceship.entity", "Ship");
-    auto ship_spatial = _world.component<SpatialComponent>(spaceship);
-    //END SHIP
-    
-    //BOX
-    EntityHandle box = _world.loadEntity("box.entity", "Box");
-    auto box_spatial = _world.component<SpatialComponent>(box);
-    box_spatial->spatial.translate(glm::vec3(3,0,0));
-    //END BOX
-    
-    //BOX
-    _world.loadEntity("box.entity", "SomeTestBox");
-    //END BOX
-    
-    //CAMERA
-    Entity* camera = _world.loadEntity("camera.entity", "Camera");
-    
-    auto camera_hier = _world.createComponent<SpatialHierarchyComponent>(camera);
-    camera_hier->local.translate(glm::vec3(0, 0, 2));
-    camera_hier->local.look_at(ship_spatial->spatial);
-    camera_hier->owner = spaceship;
-    //END CAMERA
-    
     systems::build();
 }
 

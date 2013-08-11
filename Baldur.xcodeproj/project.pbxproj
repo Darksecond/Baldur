@@ -48,6 +48,8 @@
 		F6B772DC17B2599400DBF972 /* stb_image.c in Sources */ = {isa = PBXBuildFile; fileRef = F6B772DA17B2599400DBF972 /* stb_image.c */; settings = {COMPILER_FLAGS = "-w"; }; };
 		F6B772DF17B2599C00DBF972 /* Texture.cc in Sources */ = {isa = PBXBuildFile; fileRef = F6B772DD17B2599C00DBF972 /* Texture.cc */; };
 		F6B772E317B259B700DBF972 /* Bitmap.cc in Sources */ = {isa = PBXBuildFile; fileRef = F6B772E117B259B700DBF972 /* Bitmap.cc */; };
+		F6CC85A817B7A2FD00B47CA0 /* world_bindings.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F6CC85A717B7A2FD00B47CA0 /* world_bindings.cpp */; };
+		F6CC85AA17B7A62000B47CA0 /* entity_bindings.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F6CC85A917B7A62000B47CA0 /* entity_bindings.cpp */; };
 		F6E0D72B17B41E6800839A87 /* ScriptSystem.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F6E0D72917B41E6800839A87 /* ScriptSystem.cpp */; };
 		F6E7BC8C17AFC00A00B9D2B2 /* GLM.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F6E7BC8B17AFC00A00B9D2B2 /* GLM.framework */; };
 		F6F49A2117B566460019FD19 /* EntityParser.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F6F49A1F17B566460019FD19 /* EntityParser.cpp */; };
@@ -158,6 +160,9 @@
 		F6B772E117B259B700DBF972 /* Bitmap.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Bitmap.cc; sourceTree = "<group>"; };
 		F6B772E217B259B700DBF972 /* Bitmap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Bitmap.h; sourceTree = "<group>"; };
 		F6B772E417B25A0800DBF972 /* CubeGeometry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CubeGeometry.h; sourceTree = "<group>"; };
+		F6CC85A617B7A2E700B47CA0 /* ScriptBindings.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ScriptBindings.h; sourceTree = "<group>"; };
+		F6CC85A717B7A2FD00B47CA0 /* world_bindings.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = world_bindings.cpp; sourceTree = "<group>"; };
+		F6CC85A917B7A62000B47CA0 /* entity_bindings.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = entity_bindings.cpp; sourceTree = "<group>"; };
 		F6E0D72917B41E6800839A87 /* ScriptSystem.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ScriptSystem.cpp; sourceTree = "<group>"; };
 		F6E0D72A17B41E6800839A87 /* ScriptSystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScriptSystem.h; sourceTree = "<group>"; };
 		F6E7BC8B17AFC00A00B9D2B2 /* GLM.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GLM.framework; path = "../../../Library/Developer/Xcode/DerivedData/Baldur-btwkzdokouqopcbnsjpypviqwbxp/Build/Products/Debug/GLM.framework"; sourceTree = "<group>"; };
@@ -276,6 +281,7 @@
 		F6836F2017AFBC9200F0D669 /* src */ = {
 			isa = PBXGroup;
 			children = (
+				F6CC85A517B7A2C200B47CA0 /* ScriptBindings */,
 				F6F49A1E17B5662B0019FD19 /* EntityParser */,
 				F6B772B517B258DC00DBF972 /* Resources */,
 				F600EC8117B2454E00DFE37E /* Systems */,
@@ -344,6 +350,16 @@
 				F6B772DE17B2599C00DBF972 /* Texture.h */,
 			);
 			path = Resources;
+			sourceTree = "<group>";
+		};
+		F6CC85A517B7A2C200B47CA0 /* ScriptBindings */ = {
+			isa = PBXGroup;
+			children = (
+				F6CC85A617B7A2E700B47CA0 /* ScriptBindings.h */,
+				F6CC85A717B7A2FD00B47CA0 /* world_bindings.cpp */,
+				F6CC85A917B7A62000B47CA0 /* entity_bindings.cpp */,
+			);
+			path = ScriptBindings;
 			sourceTree = "<group>";
 		};
 		F6F49A1E17B5662B0019FD19 /* EntityParser */ = {
@@ -450,6 +466,8 @@
 				F6466ACF17B3E35700A8A449 /* TTLSystem.cpp in Sources */,
 				F6E0D72B17B41E6800839A87 /* ScriptSystem.cpp in Sources */,
 				F6F49A2117B566460019FD19 /* EntityParser.cpp in Sources */,
+				F6CC85A817B7A2FD00B47CA0 /* world_bindings.cpp in Sources */,
+				F6CC85AA17B7A62000B47CA0 /* entity_bindings.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
