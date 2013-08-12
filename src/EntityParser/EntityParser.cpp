@@ -31,6 +31,8 @@ EntityHandle EntityParser::parse(World* world, const char* identifier, const cha
             parse_time(world, entity, component);
         } else if(strcmp(component.getName(), "control") == 0) {
             parse_control(world, entity, component);
+        } else if(strcmp(component.getName(), "rigid_body") == 0) {
+            parse_rigidBody(world, entity, component);
         }
     }
     
@@ -112,4 +114,16 @@ void EntityParser::parse_control(World* world, EntityHandle entity, const libcon
     if(strcmp(setting, "freecam") == 0) {
         component->control_type = ControlComponent::ControlType::FREECAM;
     }
+}
+
+/*
+    rigid_body = {
+        mass = 80;
+    };
+*/
+#include "../Components/RigidBodyComponent.h"
+void EntityParser::parse_rigidBody(World* world, EntityHandle entity, const libconfig::Setting& setting) {
+    RigidBodyComponent* component = world->createComponent<RigidBodyComponent>(entity);
+    
+    component->mass = setting["mass"];
 }

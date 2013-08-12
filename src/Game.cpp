@@ -25,7 +25,7 @@
 //HACK
 #include "EntityParser/EntityParser.h"
 
-Game::Game() : _input_system(&_world), _render_system(&_world), _movement_control_system(&_world), _spatial_hierarchy_system(&_world), _time_left_system(&_world), _ttl_system(&_world), _script_sytem(&_world) {
+Game::Game() : _input_system(&_world), _render_system(&_world), _movement_control_system(&_world), _spatial_hierarchy_system(&_world), _time_left_system(&_world), _ttl_system(&_world), _script_sytem(&_world), _physics_system(&_world) {
 }
 
 void Game::init() {
@@ -71,9 +71,15 @@ void Game::init() {
     
     std::cout << "--- Initializing ScriptSystem" << std::endl;
     _script_sytem.init();
+    
+    std::cout << "--- Initializing PhysicsSystem" << std::endl;
+    _physics_system.init();
 }
 
 void Game::shutdown() {
+    std::cout << "--- Shutting down PhysicsSystem" << std::endl;
+    _physics_system.shutdown();
+    
     std::cout << "--- Shutting down ScriptSystem" << std::endl;
     _script_sytem.shutdown();
     
@@ -122,6 +128,13 @@ void showFPS(const char* title) {
 }
 
 void Game::build() {
+    /*
+     http://stackoverflow.com/questions/345838/ball-to-ball-collision-detection-and-handling
+     https://www.google.com/search?q=gamedev+elastic+collision&oq=gamedev+elastic+collision&aqs=chrome.0.69i57j69i62j69i64l2.4768j0&sourceid=chrome&ie=UTF-8
+     https://en.wikipedia.org/wiki/Elastic_collision
+     http://gamedev.tutsplus.com/tutorials/implementation/when-worlds-collide-simulating-circle-circle-collisions/
+     
+     */
     systems::build();
 }
 

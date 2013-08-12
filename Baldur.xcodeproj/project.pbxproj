@@ -11,6 +11,7 @@
 		F600EC7D17B240E500DFE37E /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F600EC7C17B240E500DFE37E /* main.cpp */; };
 		F600EC7F17B2438700DFE37E /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F600EC7E17B2438700DFE37E /* OpenGL.framework */; };
 		F600EC8417B245EE00DFE37E /* InputSystem.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F600EC8217B245EE00DFE37E /* InputSystem.cpp */; };
+		F6122FCF17B90619001748A8 /* vector_bindings.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F6122FCE17B90619001748A8 /* vector_bindings.cpp */; };
 		F619A6A117B13465009ABFBC /* Entity.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F619A69F17B13465009ABFBC /* Entity.cpp */; };
 		F624276717B3AE5F0015D646 /* text.cc in Sources */ = {isa = PBXBuildFile; fileRef = F624276517B3AE5F0015D646 /* text.cc */; };
 		F6434AD117AFE7E10018BDC9 /* Component.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F6434ACF17AFE7E10018BDC9 /* Component.cpp */; };
@@ -53,6 +54,7 @@
 		F6E0D72B17B41E6800839A87 /* ScriptSystem.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F6E0D72917B41E6800839A87 /* ScriptSystem.cpp */; };
 		F6E7BC8C17AFC00A00B9D2B2 /* GLM.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F6E7BC8B17AFC00A00B9D2B2 /* GLM.framework */; };
 		F6F49A2117B566460019FD19 /* EntityParser.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F6F49A1F17B566460019FD19 /* EntityParser.cpp */; };
+		F6F5FBDB17B972F100DAEDD6 /* PhysicsSystem.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F6F5FBD917B972F100DAEDD6 /* PhysicsSystem.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -79,6 +81,7 @@
 		F600EC8217B245EE00DFE37E /* InputSystem.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = InputSystem.cpp; sourceTree = "<group>"; };
 		F600EC8317B245EE00DFE37E /* InputSystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InputSystem.h; sourceTree = "<group>"; };
 		F600EC8517B24DA800DFE37E /* MouseComponent.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MouseComponent.h; sourceTree = "<group>"; };
+		F6122FCE17B90619001748A8 /* vector_bindings.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = vector_bindings.cpp; sourceTree = "<group>"; };
 		F619A69F17B13465009ABFBC /* Entity.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Entity.cpp; sourceTree = "<group>"; };
 		F619A6A017B13465009ABFBC /* Entity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Entity.h; sourceTree = "<group>"; };
 		F624276517B3AE5F0015D646 /* text.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = text.cc; sourceTree = "<group>"; };
@@ -168,6 +171,9 @@
 		F6E7BC8B17AFC00A00B9D2B2 /* GLM.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GLM.framework; path = "../../../Library/Developer/Xcode/DerivedData/Baldur-btwkzdokouqopcbnsjpypviqwbxp/Build/Products/Debug/GLM.framework"; sourceTree = "<group>"; };
 		F6F49A1F17B566460019FD19 /* EntityParser.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = EntityParser.cpp; sourceTree = "<group>"; };
 		F6F49A2017B566460019FD19 /* EntityParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EntityParser.h; sourceTree = "<group>"; };
+		F6F5FBD817B96C3800DAEDD6 /* RigidBodyComponent.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RigidBodyComponent.h; sourceTree = "<group>"; };
+		F6F5FBD917B972F100DAEDD6 /* PhysicsSystem.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = PhysicsSystem.cpp; sourceTree = "<group>"; };
+		F6F5FBDA17B972F100DAEDD6 /* PhysicsSystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhysicsSystem.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -200,6 +206,7 @@
 				F624276817B3AF310015D646 /* HUDTextComponent.h */,
 				F68A011B17B3C155005CB4E6 /* TimeComponent.h */,
 				F6466ACC17B3E32500A8A449 /* TTLComponent.h */,
+				F6F5FBD817B96C3800DAEDD6 /* RigidBodyComponent.h */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -221,6 +228,8 @@
 				F6466ACE17B3E35700A8A449 /* TTLSystem.h */,
 				F6E0D72917B41E6800839A87 /* ScriptSystem.cpp */,
 				F6E0D72A17B41E6800839A87 /* ScriptSystem.h */,
+				F6F5FBD917B972F100DAEDD6 /* PhysicsSystem.cpp */,
+				F6F5FBDA17B972F100DAEDD6 /* PhysicsSystem.h */,
 			);
 			path = Systems;
 			sourceTree = "<group>";
@@ -358,6 +367,7 @@
 				F6CC85A617B7A2E700B47CA0 /* ScriptBindings.h */,
 				F6CC85A717B7A2FD00B47CA0 /* world_bindings.cpp */,
 				F6CC85A917B7A62000B47CA0 /* entity_bindings.cpp */,
+				F6122FCE17B90619001748A8 /* vector_bindings.cpp */,
 			);
 			path = ScriptBindings;
 			sourceTree = "<group>";
@@ -468,6 +478,8 @@
 				F6F49A2117B566460019FD19 /* EntityParser.cpp in Sources */,
 				F6CC85A817B7A2FD00B47CA0 /* world_bindings.cpp in Sources */,
 				F6CC85AA17B7A62000B47CA0 /* entity_bindings.cpp in Sources */,
+				F6122FCF17B90619001748A8 /* vector_bindings.cpp in Sources */,
+				F6F5FBDB17B972F100DAEDD6 /* PhysicsSystem.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

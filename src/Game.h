@@ -7,6 +7,7 @@
 #include "TimeLeftSystem.h"
 #include "TTLSystem.h"
 #include "ScriptSystem.h"
+#include "PhysicsSystem.h"
 
 #include "World.h"
 
@@ -29,4 +30,5 @@ private:
     TimeLeftSystem _time_left_system;
     TTLSystem _ttl_system;
     ScriptSystem _script_sytem;
+    PhysicsSystem _physics_system;
 };
