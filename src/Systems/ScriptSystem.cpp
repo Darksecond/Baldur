@@ -5,6 +5,8 @@
 
 ScriptSystem::ScriptSystem(World* world) : System(world) {
     systems::registerSystem(this);
+    events::registerSink(this, EventType::NO_TIME_LEFT);
+    events::registerSink(this, EventType::KEY_PRESSED);
 }
 
 static int script_custom_loader(lua_State* L) {
@@ -81,4 +83,27 @@ int ScriptSystem::load(const char* identifier) {
 }
 
 void ScriptSystem::receive(const Event& event) {
+    switch (event.type) {
+        case EventType::KEY_PRESSED: {
+            lua_getglobal(_L, "key_pressed");
+            if(lua_isfunction(_L, -1)) {
+                lua_pushinteger(_L, event.key);
+                if(lua_pcall(_L, 1, 0, 0) != 0) {
+                    luaL_error(_L, "lua error: %s", lua_tostring(_L, -1));
+                }
+            }
+        }
+            break;
+        case EventType::NO_TIME_LEFT: {
+            lua_getglobal(_L, "no_time_left");
+            if(lua_isfunction(_L, -1)) {
+                if(lua_pcall(_L, 0, 0, 0) != 0) {
+                    luaL_error(_L, "lua error: %s", lua_tostring(_L, -1));
+                }
+            }
+        }
+            break;
+        default:
+            break;
+    }
 }

@@ -10,6 +10,7 @@ enum class EventType {
     COMPONENT_DESTROYED,
     KEY_PRESSED,
     NO_TIME_LEFT,
+    MOVED,
 };
 
 struct Event {

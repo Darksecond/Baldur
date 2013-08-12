@@ -24,6 +24,7 @@ bool SpatialHierarchySystem::step(int pass, double delta) {
                 //calculate new spatial
                 spatial->spatial = parent_spatial->spatial * h->local;
                 //spatial->spatial = h->local * parent_spatial->spatial;
+                events::sendEvent(Event{.type = EventType::MOVED, .entity = spatial->parent});
             }
         }
     }

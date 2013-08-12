@@ -31,7 +31,8 @@ bool InputSystem::step(int pass, double delta) {
     if(glfwGetKey('Q') == GLFW_PRESS) events::sendEvent(Event{.type = EventType::KEY_PRESSED, .key = 'Q'});
     if(glfwGetKey('E') == GLFW_PRESS) events::sendEvent(Event{.type = EventType::KEY_PRESSED, .key = 'E'});
     
-    if(glfwGetKey(GLFW_MOUSE_BUTTON_LEFT) == GLFW_PRESS) events::sendEvent(Event{.type = EventType::KEY_PRESSED, .key = GLFW_MOUSE_BUTTON_LEFT});
+    if(glfwGetMouseButton(GLFW_MOUSE_BUTTON_LEFT) == GLFW_PRESS) events::sendEvent(Event{.type = EventType::KEY_PRESSED, .key = GLFW_MOUSE_BUTTON_LEFT});
+    if(glfwGetMouseButton(GLFW_MOUSE_BUTTON_RIGHT) == GLFW_PRESS) events::sendEvent(Event{.type = EventType::KEY_PRESSED, .key = GLFW_MOUSE_BUTTON_RIGHT});
     //END KEYBOARD
     
     //MOUSE

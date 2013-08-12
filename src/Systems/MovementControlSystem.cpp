@@ -33,6 +33,7 @@ bool MovementControlSystem::step(int pass, double delta) {
             spatial->spatial.translate(spatial->spatial.right() * (float)delta * control->movement.x);
             spatial->spatial.translate(spatial->spatial.up() * (float)delta * control->movement.y);
             spatial->spatial.translate(spatial->spatial.forward() * (float)delta * control->movement.z);
+            events::sendEvent(Event{.type = EventType::MOVED, .entity = spatial->parent});
             
             
             control->movement = glm::vec3(0,0,0);

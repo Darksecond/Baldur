@@ -4,6 +4,7 @@
 #include "../Entity.h"
 #include "../Components/SpatialHierarchyComponent.h"
 #include "../Components/SpatialComponent.h"
+#include "../Event.h"
 
 static int script_entity_name(lua_State* L) {
     int n = lua_gettop(L);
@@ -54,6 +55,7 @@ static int script_entity_set_position(lua_State* L) {
     
     if(sc) {
         sc->spatial.translate(glm::vec3(x,y,z));
+        events::sendEvent(Event{.type = EventType::MOVED, .entity = entity});
         lua_pushboolean(L, true);
     } else {
         lua_pushboolean(L, false);
