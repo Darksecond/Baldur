@@ -7,6 +7,7 @@ ScriptSystem::ScriptSystem(World* world) : System(world) {
     systems::registerSystem(this);
     events::registerSink(this, EventType::NO_TIME_LEFT);
     events::registerSink(this, EventType::KEY_PRESSED);
+    events::registerSink(this, EventType::COLLISION);
 }
 
 static int script_custom_loader(lua_State* L) {
@@ -98,6 +99,27 @@ void ScriptSystem::receive(const Event& event) {
             lua_getglobal(_L, "no_time_left");
             if(lua_isfunction(_L, -1)) {
                 if(lua_pcall(_L, 0, 0, 0) != 0) {
+                    luaL_error(_L, "lua error: %s", lua_tostring(_L, -1));
+                }
+            }
+        }
+            break;
+        case EventType::COLLISION: {
+            lua_getglobal(_L, "collision");
+            if(lua_isfunction(_L, -1)) {
+                lua_pushlightuserdata(_L, event.collision.a);
+                lua_pushlightuserdata(_L, event.collision.b);
+                lua_pushnumber(_L, event.collision.depth);
+                
+                lua_pushnumber(_L, event.collision.normal[0]);
+                lua_pushnumber(_L, event.collision.normal[1]);
+                lua_pushnumber(_L, event.collision.normal[2]);
+                
+                lua_pushnumber(_L, event.collision.position[0]);
+                lua_pushnumber(_L, event.collision.position[1]);
+                lua_pushnumber(_L, event.collision.position[2]);
+                
+                if(lua_pcall(_L, 9, 0, 0) != 0) {
                     luaL_error(_L, "lua error: %s", lua_tostring(_L, -1));
                 }
             }

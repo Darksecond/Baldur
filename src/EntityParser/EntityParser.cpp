@@ -33,6 +33,8 @@ EntityHandle EntityParser::parse(World* world, const char* identifier, const cha
             parse_control(world, entity, component);
         } else if(strcmp(component.getName(), "rigid_body") == 0) {
             parse_rigidBody(world, entity, component);
+        } else if(strcmp(component.getName(), "sphere_geom") == 0) {
+            parse_sphere_geom(world, entity, component);
         }
     }
     
@@ -126,4 +128,23 @@ void EntityParser::parse_rigidBody(World* world, EntityHandle entity, const libc
     RigidBodyComponent* component = world->createComponent<RigidBodyComponent>(entity);
     
     component->mass = setting["mass"];
+}
+
+/*
+    sphere_geom = {
+        radius = 2;
+        offset = { x = 3; y = 4; z = 0; };
+    };
+*/
+#include "../Components/SphereGeomComponent.h"
+void EntityParser::parse_sphere_geom(World* world, EntityHandle entity, const libconfig::Setting& setting) {
+    SphereGeomComponent* component = world->createComponent<SphereGeomComponent>(entity);
+    
+    component->radius = setting["radius"];
+    if(setting.exists("offset.x") && setting.exists("offset.y") && setting.exists("offset.z")) {
+        float x = setting["offset"]["x"];
+        float y = setting["offset"]["y"];
+        float z = setting["offset"]["z"];
+        component->offset.translate(glm::vec3(x,y,z));
+    }
 }

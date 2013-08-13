@@ -25,7 +25,7 @@
 //HACK
 #include "EntityParser/EntityParser.h"
 
-Game::Game() : _input_system(&_world), _render_system(&_world), _movement_control_system(&_world), _spatial_hierarchy_system(&_world), _time_left_system(&_world), _ttl_system(&_world), _script_sytem(&_world), _physics_system(&_world) {
+Game::Game() : _input_system(&_world), _render_system(&_world), _movement_control_system(&_world), _spatial_hierarchy_system(&_world), _time_left_system(&_world), _ttl_system(&_world), _script_sytem(&_world), _physics_system(&_world), _collision_detection_system(&_world) {
 }
 
 void Game::init() {
@@ -74,9 +74,15 @@ void Game::init() {
     
     std::cout << "--- Initializing PhysicsSystem" << std::endl;
     _physics_system.init();
+    
+    std::cout << "--- Initializing CollisionDetectionSystem" << std::endl;
+    _collision_detection_system.init();
 }
 
 void Game::shutdown() {
+    std::cout << "--- Shutting down CollisionDetectionSystem" << std::endl;
+    _collision_detection_system.shutdown();
+    
     std::cout << "--- Shutting down PhysicsSystem" << std::endl;
     _physics_system.shutdown();
     

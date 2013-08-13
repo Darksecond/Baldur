@@ -101,6 +101,27 @@ static int get_mass(lua_State* L) {
     return 1;
 }
 
+static int get_position(lua_State* L) {
+    int n = lua_gettop(L);
+    if(n != 2) return luaL_error(L, "Got %d arguments expected 2 (world, entity)", n);
+    
+    World* world = (World*)lua_touserdata(L, 1);
+    EntityHandle entity = (EntityHandle)lua_touserdata(L, 2);
+    
+    SpatialComponent* component = world->component<SpatialComponent>(entity);
+    if(component) {
+        lua_pushnumber(L, component->spatial.position().x);
+        lua_pushnumber(L, component->spatial.position().y);
+        lua_pushnumber(L, component->spatial.position().z);
+    } else {
+        lua_pushnil(L);
+        lua_pushnil(L);
+        lua_pushnil(L);
+    }
+    
+    return 3;
+}
+
 static int set_mass(lua_State* L) {
     int n = lua_gettop(L);
     if(n != 3) return luaL_error(L, "Got %d arguments expected 3 (world, entity, mass)", n);
@@ -140,7 +161,7 @@ static int get_velocity(lua_State* L) {
 
 static int set_velocity(lua_State* L) {
     int n = lua_gettop(L);
-    if(n != 5) return luaL_error(L, "Got %d arguments expected 2 (world, entity, x, y, z)", n);
+    if(n != 5) return luaL_error(L, "Got %d arguments expected 5 (world, entity, x, y, z)", n);
     
     World* world = (World*)lua_touserdata(L, 1);
     EntityHandle entity = (EntityHandle)lua_touserdata(L, 2);
@@ -180,6 +201,7 @@ void script_registerEntity(lua_State* L) {
         {"set_local_position", script_entity_set_local_position},
         {"local_lookat", script_entity_local_lookat},
         {"set_position", script_entity_set_position},
+        {"get_position", get_position},
         {"get_mass", get_mass},
         {"set_mass", set_mass},
         {"get_velocity", get_velocity},

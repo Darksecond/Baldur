@@ -55,6 +55,8 @@
 		F6E7BC8C17AFC00A00B9D2B2 /* GLM.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F6E7BC8B17AFC00A00B9D2B2 /* GLM.framework */; };
 		F6F49A2117B566460019FD19 /* EntityParser.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F6F49A1F17B566460019FD19 /* EntityParser.cpp */; };
 		F6F5FBDB17B972F100DAEDD6 /* PhysicsSystem.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F6F5FBD917B972F100DAEDD6 /* PhysicsSystem.cpp */; };
+		F6F84DDC17BA36E000DD35D8 /* CollisionDetectionSystem.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F6F84DDA17BA36E000DD35D8 /* CollisionDetectionSystem.cpp */; };
+		F6F84DDF17BA5AC300DD35D8 /* Octree.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F6F84DDD17BA5AC300DD35D8 /* Octree.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -174,6 +176,11 @@
 		F6F5FBD817B96C3800DAEDD6 /* RigidBodyComponent.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RigidBodyComponent.h; sourceTree = "<group>"; };
 		F6F5FBD917B972F100DAEDD6 /* PhysicsSystem.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = PhysicsSystem.cpp; sourceTree = "<group>"; };
 		F6F5FBDA17B972F100DAEDD6 /* PhysicsSystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhysicsSystem.h; sourceTree = "<group>"; };
+		F6F84DD917BA36A300DD35D8 /* SphereGeomComponent.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SphereGeomComponent.h; sourceTree = "<group>"; };
+		F6F84DDA17BA36E000DD35D8 /* CollisionDetectionSystem.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CollisionDetectionSystem.cpp; sourceTree = "<group>"; };
+		F6F84DDB17BA36E000DD35D8 /* CollisionDetectionSystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CollisionDetectionSystem.h; sourceTree = "<group>"; };
+		F6F84DDD17BA5AC300DD35D8 /* Octree.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Octree.cpp; sourceTree = "<group>"; };
+		F6F84DDE17BA5AC300DD35D8 /* Octree.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Octree.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -207,6 +214,7 @@
 				F68A011B17B3C155005CB4E6 /* TimeComponent.h */,
 				F6466ACC17B3E32500A8A449 /* TTLComponent.h */,
 				F6F5FBD817B96C3800DAEDD6 /* RigidBodyComponent.h */,
+				F6F84DD917BA36A300DD35D8 /* SphereGeomComponent.h */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -230,6 +238,8 @@
 				F6E0D72A17B41E6800839A87 /* ScriptSystem.h */,
 				F6F5FBD917B972F100DAEDD6 /* PhysicsSystem.cpp */,
 				F6F5FBDA17B972F100DAEDD6 /* PhysicsSystem.h */,
+				F6F84DDA17BA36E000DD35D8 /* CollisionDetectionSystem.cpp */,
+				F6F84DDB17BA36E000DD35D8 /* CollisionDetectionSystem.h */,
 			);
 			path = Systems;
 			sourceTree = "<group>";
@@ -315,6 +325,8 @@
 				F65E765D17B27CE200AC6807 /* render_command.h */,
 				F65E765E17B27CE300AC6807 /* render_frame.h */,
 				F65E765F17B27CED00AC6807 /* commands.h */,
+				F6F84DDD17BA5AC300DD35D8 /* Octree.cpp */,
+				F6F84DDE17BA5AC300DD35D8 /* Octree.h */,
 			);
 			path = src;
 			sourceTree = "<group>";
@@ -480,6 +492,8 @@
 				F6CC85AA17B7A62000B47CA0 /* entity_bindings.cpp in Sources */,
 				F6122FCF17B90619001748A8 /* vector_bindings.cpp in Sources */,
 				F6F5FBDB17B972F100DAEDD6 /* PhysicsSystem.cpp in Sources */,
+				F6F84DDC17BA36E000DD35D8 /* CollisionDetectionSystem.cpp in Sources */,
+				F6F84DDF17BA5AC300DD35D8 /* Octree.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

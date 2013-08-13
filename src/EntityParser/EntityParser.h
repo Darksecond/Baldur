@@ -17,4 +17,5 @@ private:
     void parse_time(World* world, EntityHandle entity, const libconfig::Setting& setting);
     void parse_control(World* world, EntityHandle entity, const libconfig::Setting& setting);
     void parse_rigidBody(World* world, EntityHandle entity, const libconfig::Setting& setting);
+    void parse_sphere_geom(World* world, EntityHandle entity, const libconfig::Setting& setting);
 };

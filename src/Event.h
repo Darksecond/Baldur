@@ -1,6 +1,7 @@
 #pragma once
 
 class Entity;
+typedef Entity* EntityHandle;
 
 enum class EventType {
     ALL,
@@ -11,6 +12,7 @@ enum class EventType {
     KEY_PRESSED,
     NO_TIME_LEFT,
     MOVED,
+    COLLISION,
 };
 
 struct Event {
@@ -18,6 +20,13 @@ struct Event {
     union {
         Entity* entity;
         int key;
+        struct {
+            float position[3];
+            float normal[3];
+            double depth;
+            EntityHandle a;
+            EntityHandle b;
+        } collision;
     };
 };
 

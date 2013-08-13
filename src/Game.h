@@ -8,6 +8,7 @@
 #include "TTLSystem.h"
 #include "ScriptSystem.h"
 #include "PhysicsSystem.h"
+#include "CollisionDetectionSystem.h"
 
 #include "World.h"
 
@@ -31,4 +32,5 @@ private:
     TTLSystem _ttl_system;
     ScriptSystem _script_sytem;
     PhysicsSystem _physics_system;
+    CollisionDetectionSystem _collision_detection_system;
 };
