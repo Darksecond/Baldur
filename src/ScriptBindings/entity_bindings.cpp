@@ -33,7 +33,7 @@ static int script_entity_set_local_position(lua_State* L) {
     SpatialHierarchyComponent* shc = world->component<SpatialHierarchyComponent>(entity);
     
     if(shc) {
-        shc->local.translate(glm::vec3(x,y,z));
+        shc->local.set_position(glm::vec3(x,y,z));
         lua_pushboolean(L, true);
     } else {
         lua_pushboolean(L, false);
@@ -55,7 +55,7 @@ static int script_entity_set_position(lua_State* L) {
     SpatialComponent* sc = world->component<SpatialComponent>(entity);
     
     if(sc) {
-        sc->spatial.translate(glm::vec3(x,y,z));
+        sc->spatial.set_position(glm::vec3(x,y,z));
         events::sendEvent(Event{.type = EventType::MOVED, .entity = entity});
         lua_pushboolean(L, true);
     } else {
@@ -120,6 +120,48 @@ static int get_position(lua_State* L) {
     }
     
     return 3;
+}
+
+static int get_rotation(lua_State* L) {
+    int n = lua_gettop(L);
+    if(n != 2) return luaL_error(L, "Got %d arguments expected 2 (world, entity)", n);
+    
+    World* world = (World*)lua_touserdata(L, 1);
+    EntityHandle entity = (EntityHandle)lua_touserdata(L, 2);
+    
+    SpatialComponent* component = world->component<SpatialComponent>(entity);
+    if(component) {
+        lua_pushnumber(L, component->spatial.rotation().w);
+        lua_pushnumber(L, component->spatial.rotation().x);
+        lua_pushnumber(L, component->spatial.rotation().y);
+        lua_pushnumber(L, component->spatial.rotation().z);
+    } else {
+        lua_pushnil(L);
+        lua_pushnil(L);
+        lua_pushnil(L);
+        lua_pushnil(L);
+    }
+    return 4;
+}
+
+static int set_rotation(lua_State* L) {
+    int n = lua_gettop(L);
+    if(n != 6) return luaL_error(L, "Got %d arguments expected 6 (world, entity, w, x, y, z)", n);
+    
+    World* world = (World*)lua_touserdata(L, 1);
+    EntityHandle entity = (EntityHandle)lua_touserdata(L, 2);
+    double w = luaL_checknumber(L, 3);
+    double x = luaL_checknumber(L, 4);
+    double y = luaL_checknumber(L, 5);
+    double z = luaL_checknumber(L, 6);
+    
+    
+    SpatialComponent* component = world->component<SpatialComponent>(entity);
+    if(component) {
+        component->spatial.set_rotation(glm::quat(w,x,y,z));
+    }
+    
+    return 0;
 }
 
 static int set_mass(lua_State* L) {
@@ -195,6 +237,22 @@ static int set_forward_velocity(lua_State* L) {
     return 0;
 }
 
+static int translate_forward(lua_State* L) {
+    int n = lua_gettop(L);
+    if(n != 3) return luaL_error(L, "Got %d arguments expected 3 (world, entity, amount)", n);
+    
+    World* world = (World*)lua_touserdata(L, 1);
+    EntityHandle entity = (EntityHandle)lua_touserdata(L, 2);
+    double amount =  luaL_checknumber(L, 3);
+    
+    SpatialComponent* spatial = world->component<SpatialComponent>(entity);
+    
+    if(spatial) {
+        spatial->spatial.translate(spatial->spatial.forward() * (float)amount);
+    }
+    return 0;
+}
+
 void script_registerEntity(lua_State* L) {
     luaL_Reg regs[] = {
         {"name", script_entity_name},
@@ -207,6 +265,9 @@ void script_registerEntity(lua_State* L) {
         {"get_velocity", get_velocity},
         {"set_velocity", set_velocity},
         {"set_forward_velocity", set_forward_velocity},
+        {"get_rotation", get_rotation},
+        {"set_rotation", set_rotation},
+        {"translate_forward", translate_forward},
         {NULL, NULL},
     };
     luaL_register(L, "Entity", regs);

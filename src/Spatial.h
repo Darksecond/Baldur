@@ -18,6 +18,10 @@ public:
     Spatial operator *(const Spatial& other) const;
     
     inline const glm::vec3& position() { return _position; }
+    void set_position(const glm::vec3& pos) { _position = pos; }
+    
+    inline const glm::quat& rotation() { return _rotation; }
+    void set_rotation(const glm::quat& rot) { _rotation = rot; }
 private:
     glm::vec3 _position;
     glm::quat _rotation;
