@@ -5,5 +5,5 @@
 
 struct RigidBodyComponent : Component<RigidBodyComponent> {
     glm::vec3 velocity;
-    double mass;
+    float mass;
 };

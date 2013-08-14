@@ -6,6 +6,7 @@
 #include <map>
 #include <iostream>
 #include <string>
+#include <list>
 
 #include "Entity.h"
 #include "Event.h"
@@ -22,7 +23,6 @@ public:
     
     EntityHandle createEntity(const char* name);
     void destroyEntity(const EntityHandle entity);
-    EntityHandle resolve(const char* name);
     std::list<EntityHandle> entities();
     const char* name(const EntityHandle entity) const;
     EntityHandle loadEntity(const char* identifier, const char* name);
@@ -59,6 +59,6 @@ public:
         return entity->component<C>();
     }
 private:
-    std::map<std::string, EntityHandle> _entities;
+    std::list<EntityHandle> _entities;
     std::map<BaseComponent::type_t, std::list<BaseComponent*>> _components;
 };

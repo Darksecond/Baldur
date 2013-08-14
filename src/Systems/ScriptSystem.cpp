@@ -64,6 +64,15 @@ void ScriptSystem::shutdown() {
 
 bool ScriptSystem::step(int pass, double delta) {
     if(pass != 8) return true;
+    
+    lua_getglobal(_L, "step");
+    if(lua_isfunction(_L, -1)) {
+        lua_pushnumber(_L, delta);
+        if(lua_pcall(_L, 1, 0, 0) != 0) {
+            luaL_error(_L, "lua error: %s", lua_tostring(_L, -1));
+        }
+    }
+    
     return true;
 }
 

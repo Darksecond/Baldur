@@ -5,14 +5,14 @@ World::World() {
 }
 
 World::~World() {
-    for(auto& e : _entities) {
-        if(e.second) delete e.second;
+    for(auto& e: _entities) {
+        delete e;
     }
 }
 
 EntityHandle World::createEntity(const char* name) {
     Entity* e = new Entity(name);
-    _entities[e->name()] = e;
+    _entities.push_back(e);
     
     Event event = {
         .type = EventType::ENTITY_CREATED,
@@ -38,21 +38,12 @@ void World::destroyEntity(const EntityHandle entity) {
                               });
     }
     
-    _entities[entity->name()] = nullptr;
+    _entities.remove(entity);
     delete entity;
 }
 
-EntityHandle World::resolve(const char* name) {
-    return _entities[name];
-}
-
 std::list<EntityHandle> World::entities() {
-    std::list<EntityHandle> entity_list;
-    for(auto& pair : _entities) {
-        if(pair.second != nullptr)
-            entity_list.push_back(pair.second);
-    }
-    return entity_list;
+    return _entities;
 }
 
 const char* World::name(const EntityHandle entity) const {
